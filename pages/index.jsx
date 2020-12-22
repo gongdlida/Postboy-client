@@ -1,11 +1,16 @@
 import Nav from "../components/Nav";
+import SendMessage from "../components/SendMessage";
+import Title from "../components/Title"
+import Request from "../components/Request"
 
 export default function Home() {
   return (
     <>
-      <Nav></Nav>
-      <h1 className='text-green-500'>Postboy</h1>
-      <h2 className='text-yellow-500'>A simple HTTP Client</h2>
+    <Nav ></Nav>
+    <Title></Title>
+    <SendMessage></SendMessage>
+    <Request></Request>
+
     </>
   )
 }
