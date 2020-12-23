@@ -8,7 +8,7 @@ export default function Home() {
     <>
     <Nav ></Nav>
     <Title></Title>
-    <SendMessage></SendMessage>
+    {/* <SendMessage></SendMessage> */}
     <Request></Request>
 
     </>
