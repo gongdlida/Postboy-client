@@ -3,6 +3,7 @@ import {useRouter} from 'next/router'
 import fetch from 'node-fetch'
 import Context from '../utils/context.js'
 import Nav from '../components/Nav.jsx'
+import Link from 'next/link'
 
 
 export default function Mypage() {
@@ -50,15 +51,25 @@ export default function Mypage() {
 
         }
     }
-    return (
-        <>
-        <Nav></Nav>
-        <button onClick={handleAdd}>Click to add history</button>
-        <button onClick={handleClear}>Click to clear history</button>
-        <div>Your request history is </div>
-        <ul>
-            {history.map(item => <li>{item.type}: {item.status}</li>)}
-        </ul>
-        </>
-    )
+    if (user.isLogin) {
+        return (
+            <>
+                <Nav></Nav>
+                <button onClick={handleAdd}>Click to add history</button>
+                <button onClick={handleClear}>Click to clear history</button>
+                <div>Your request history is </div>
+                <ul>
+                    {history.map(item => <li>{item.type}: {item.status}</li>)}
+                </ul>
+            </>
+        )
+    } else {
+        return (
+            <>
+              <div>You are not logged in!</div>
+              <Link href={'/signin'}><a>Go to Login page</a></Link>
+            </>
+        )
+    }
+
 }

@@ -60,7 +60,7 @@ export const handlers = [
     }),
     rest.post('/signout', (req, res, ctx) => {
         return res(
-          ctx.status(205),
+          ctx.status(200),
           ctx.json({
             message: 'Successfully signed out!'
           })
