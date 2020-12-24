@@ -6,7 +6,7 @@ import Request from "../components/Request"
 export default function Home() {
   return (
     <>
-    <Nav ></Nav>
+    <Nav></Nav>
     <Title></Title>
     {/* <SendMessage></SendMessage> */}
     <Request></Request>
