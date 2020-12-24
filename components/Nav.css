@@ -1,0 +1,10 @@
+/** @format */
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 1.3rem;
+  width: 40%;
+}

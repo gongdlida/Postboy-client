@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 import { useState } from 'react'
 import Context from '../utils/context.js'
+=======
+import "../components/SendMessage.css";
+import "../components/Title.css"
+import "../components/Nav.css"
+>>>>>>> f096d9b... test
 
 if (process.env.NODE_ENV === 'development') {
   const { worker } = require('../mocks')
