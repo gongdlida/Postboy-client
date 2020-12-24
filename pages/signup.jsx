@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import {Router, useRouter} from 'next/router'
 import fetch from 'node-fetch'
+import Nav from '../components/Nav'
 
 export default function Signup() {
     const router = useRouter()
@@ -41,6 +42,8 @@ export default function Signup() {
 
     
     return (
+        <>
+        <Nav></Nav>
         <div>
             <div>
                 <div>
@@ -72,5 +75,6 @@ export default function Signup() {
                 </form>
             </div>
         </div>
+        </>
     )
 }
