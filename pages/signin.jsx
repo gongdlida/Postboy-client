@@ -1,14 +1,19 @@
-import {useState} from 'react'
-import {Router, useRouter} from 'next/router'
+import {useState, useContext} from 'react'
+import {useRouter} from 'next/router'
 import fetch from 'node-fetch'
 import Link from 'next/link'
 
+import Context from '../utils/context.js'
+import Nav from '../components/Nav.jsx'
+
 export default function Signin() {
     const router = useRouter()
-    const [isLogin, setisLogin] = useState(false)
+    const [user, setUser] = useContext(Context).userContext
+
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [errormessage, setErrormessage] = useState('')
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -29,14 +34,19 @@ export default function Signin() {
             if (!response.ok) {
                 throw `Server says: ${body.message}`
             } 
+            setUser({
+                isLogin: true,
+                username: body.nickname
+            })
             router.push('/') 
         } catch(e) {
             setErrormessage(e)
         }
     }
 
-    
     return (
+        <>
+        <Nav></Nav>
         <div>
             <div>
                 <div>
@@ -60,5 +70,6 @@ export default function Signin() {
                 </form>
             </div>
         </div>
+        </>
     )
 }
