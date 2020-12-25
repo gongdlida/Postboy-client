@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Context from "../utils/context.js";
-
+import "../components/yi/yi.css";
 import "../components/Title.css";
 import "../components/Nav.css";
 

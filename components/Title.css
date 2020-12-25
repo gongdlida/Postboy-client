@@ -1,9 +1,9 @@
 /** @format */
 .Main_area {
-  flex-direction: row;
+  /* flex-direction: row;
   width: 60%;
   border: 0.2rem solid rgb(0, 0, 0);
-  padding: 2rem;
+  padding: 2rem; */
 }
 .SendMessage {
   display: flex;
