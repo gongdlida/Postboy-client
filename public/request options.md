@@ -40,7 +40,7 @@ Accept encoding beginner에선 위의 값을 default 값으로 주겠습니다.
 
 - beginner Content-type option
   let content_Type_Beginner = [
-  '--APPLICATION TYPE--,
+  '--APPLICATION TYPE--',
   'application/json',
   'application/javascript',
   'application/pdf',
@@ -60,7 +60,7 @@ Accept encoding beginner에선 위의 값을 default 값으로 주겠습니다.
   'text/html',
   'text/plain',
   'text/xml'
-  ]'
+  ]
 
 - proficiant option
   let content_Type_Proficiant =[
