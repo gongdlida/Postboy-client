@@ -1,17 +1,30 @@
 import React, { useState, useEffect } from "react";
 
-function Accepts() {
+function Accepts(props) {
   let user_Agent = ["Select", "POSTBOY"];
   let accept = ["Select", "*/*"];
   let accept_Encoding = ["Select", "gzip,deflate,br"];
   let accept_Language = ["Select", "utf-8"];
+
+  const [UserAgent, SetUserAgent] = useState();
   const [Accept, SetAccept] = useState();
+  const [AcceptEn, SetAcceptEn] = useState();
+  const [AcceptLang, SetAcceptLang] = useState();
+
+  useEffect(() => {
+    props = { UserAgent, Accept, AcceptEn, AcceptLang };
+  });
 
   return (
     <>
       <label className="Header_option_box">
         User-Agent
-        <select className="Option_btn">
+        <select
+          className="Option_btn"
+          onChange={(e) => {
+            SetUserAgent(e.target.value);
+          }}
+        >
           {user_Agent.map((el, idx) => {
             return (
               <option value={el} key={idx}>
@@ -24,7 +37,10 @@ function Accepts() {
 
       <label className="Header_option_box">
         Accept
-        <select className="Option_btn">
+        <select
+          className="Option_btn"
+          onChange={(e) => SetAccept(e.target.value)}
+        >
           {accept.map((el, idx) => {
             return (
               <option value={el} key={idx}>
@@ -37,7 +53,10 @@ function Accepts() {
 
       <label className="Header_option_box">
         Accept-Language
-        <select className="Option_btn">
+        <select
+          className="Option_btn"
+          onChange={(e) => SetAcceptEn(e.target.value)}
+        >
           {accept_Language.map((el, idx) => {
             return (
               <option value={el} key={idx}>
@@ -50,7 +69,10 @@ function Accepts() {
 
       <label className="Header_option_box">
         accept_Encoding
-        <select className="Option_btn">
+        <select
+          className="Option_btn"
+          onChange={(e) => SetAcceptLang(e.target.value)}
+        >
           {accept_Encoding.map((el, idx) => {
             return (
               <option value={el} key={idx}>

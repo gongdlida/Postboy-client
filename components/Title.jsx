@@ -14,45 +14,40 @@ export default function Title() {
   );
 }
 
-{
-  /* <div className="SendMessage">
-        <select className="Select_menu">
-          <option>POST</option>
-          <option>GET</option>
-        </select>
-        <textarea className="SendText"></textarea>
-        <button className="StartFetch">실행</button>
-      </div> */
-}
-{
-  /* <Frame />
-      <Request /> */
-}
-{
-  /* <div>
-        <div className="Request_Respond">
-          <div className="Request_box">
-            <div>Request</div>
-            <textarea className=""></textarea>
-            <div>
-              <select className="">
-                <option>임시1</option>
-              </select>
-              <select className="">
-                <option>임시2</option>
-              </select>
-              <select className="">
-                <option>임시3</option>
-              </select>
-              <select className="">
-                <option>임시4</option>
-              </select>
-            </div>
-          </div>
-          <div className="Respond_box">
-            <div>Respond</div>
-            <textarea className=""></textarea>
-          </div>
-        </div>
-      </div> */
-}
+//  <div className="SendMessage">
+//         <select className="Select_menu">
+//           <option>POST</option>
+//           <option>GET</option>
+//         </select>
+//         <textarea className="SendText"></textarea>
+//         <button className="StartFetch">실행</button>
+//       </div>
+// <Frame />
+//       <Request />
+
+//  <div>
+//         <div className="Request_Respond">
+//           <div className="Request_box">
+//             <div>Request</div>
+//             <textarea className=""></textarea>
+//             <div>
+//               <select className="">
+//                 <option>임시1</option>
+//               </select>
+//               <select className="">
+//                 <option>임시2</option>
+//               </select>
+//               <select className="">
+//                 <option>임시3</option>
+//               </select>
+//               <select className="">
+//                 <option>임시4</option>
+//               </select>
+//             </div>
+//           </div>
+//           <div className="Respond_box">
+//             <div>Respond</div>
+//             <textarea className=""></textarea>
+//           </div>
+//         </div>
+//       </div>

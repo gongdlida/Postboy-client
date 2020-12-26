@@ -12,15 +12,18 @@ let headerList = request_header_options.map((el, idx) => {
   );
 });
 
-function Frame() {
+function Frame(props) {
+  useEffect(() => {
+    console.log(props);
+  });
   return (
     <div className="Header_Box">
       <div className="Request_Box">
         REQUEST
         {/* <div>{headerList}</div> */}
-        <Accepts />
-        <Connection />
-        <ContentType />
+        <Accepts checker={props} />
+        <Connection checker={props} />
+        <ContentType checker={props} />
       </div>
 
       <div className="Response_Box">
