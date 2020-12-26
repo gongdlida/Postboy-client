@@ -1,16 +1,23 @@
-import Nav from "../components/Nav";
-import SendMessage from "../components/SendMessage";
-import Title from "../components/Title"
-import Request from "../components/Request"
+import ReqHandler from "../components/reqhandler";
+import Title from "../components/Title";
+import Request from "../components/./yi/Request";
+import Frame from "../components/./yi/massForm";
+import ModalRouter from '../components/Modalrouter'
+import { useRouter } from 'next/router'
+import Link from 'next/link'
+
 
 export default function Home() {
+  const router = useRouter()
+
   return (
     <>
-    <Nav></Nav>
-    <Title></Title>
-    {/* <SendMessage></SendMessage> */}
-    <Request></Request>
-
+      {['signin', 'signup', 'signout', 'mypage', 'nav'].map((item) => <ModalRouter id={item}/>)}
+      <Link href={'/?id=nav'}><a>Hamburger</a></Link>
+      <Title></Title>
+      <ReqHandler />
+      <Frame />
+      <Request />
     </>
-  )
+  );
 }

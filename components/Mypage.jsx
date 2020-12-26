@@ -1,8 +1,6 @@
 import {useState, useEffect, useContext} from 'react'
-import {useRouter} from 'next/router'
 import fetch from 'node-fetch'
 import Context from '../utils/context.js'
-import Nav from '../components/Nav.jsx'
 import Link from 'next/link'
 
 
@@ -54,7 +52,6 @@ export default function Mypage() {
     if (user.isLogin) {
         return (
             <>
-                <Nav></Nav>
                 <button onClick={handleAdd}>Click to add history</button>
                 <button onClick={handleClear}>Click to clear history</button>
                 <div>Your request history is </div>
@@ -67,7 +64,7 @@ export default function Mypage() {
         return (
             <>
               <div>You are not logged in!</div>
-              <Link href={'/signin'}><a>Go to Login page</a></Link>
+              <Link href={'/?id=signin'}><a>Go to Login page</a></Link>
             </>
         )
     }
