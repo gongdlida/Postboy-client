@@ -10,6 +10,7 @@ export default function ReqHandler() {
   const [method, setMethod] = useState(methods[0]);
   const [url, setUrl] = useState();
   const [message, setMessage] = useState([er]);
+  const [junhee, setJunhee] = useState('')
 
   // let gathering = () =>{
 
@@ -29,6 +30,9 @@ export default function ReqHandler() {
     // }
     // alert(message);
   };
+  const handleJunhee = (sth) => {
+    setJunhee(sth)
+  }
 
   return (
     <div>
@@ -58,7 +62,7 @@ export default function ReqHandler() {
           </span>
         </div>
       </div>
-      <Frame checker={checker} />
+      <Frame junhee={handleJunhee} checker={checker} />
     </div>
   );
 }

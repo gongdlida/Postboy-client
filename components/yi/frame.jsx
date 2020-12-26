@@ -23,7 +23,7 @@ function Frame(props) {
         {/* <div>{headerList}</div> */}
         <Accepts checker={props} />
         <Connection checker={props} />
-        <ContentType checker={props} />
+        <ContentType junhee={props.junhee} checker={props} />
       </div>
 
       <div className="Response_Box">
