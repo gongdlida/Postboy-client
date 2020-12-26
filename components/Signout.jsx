@@ -1,5 +1,5 @@
 import {useState, useEffect, useContext} from 'react'
-import {Router, useRouter} from 'next/router'
+import {useRouter} from 'next/router'
 import fetch from 'node-fetch'
 import Context from '../utils/context.js'
 
