@@ -46,11 +46,6 @@
   margin: auto;
   border: 3px solid purple;
 }
-/* @media (max-width: 425px) {
-  .Postboy {
-    border-radius: 30%;
-  }
-} */
 
 .SendText {
   width: 80%;

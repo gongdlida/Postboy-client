@@ -1,11 +1,7 @@
-<<<<<<< HEAD
-import { useState } from 'react'
-import Context from '../utils/context.js'
-=======
-import "../components/SendMessage.css";
-import "../components/Title.css"
-import "../components/Nav.css"
->>>>>>> f096d9b... test
+import { useState } from 'react';
+import Context from '../utils/context.js';
+import "../components/Title.css";
+import "../components/Nav.css";
 
 if (process.env.NODE_ENV === 'development') {
   const { worker } = require('../mocks')
