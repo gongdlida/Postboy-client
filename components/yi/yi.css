@@ -33,3 +33,8 @@ body {
 .Option_btn {
   display: flex;
 }
+
+.Client_Body {
+  height: 300px;
+  width: 600px;
+}

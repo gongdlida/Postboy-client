@@ -1,25 +1,36 @@
 import React, { useState, useEffect } from "react";
-// let er = "Please fill everything that we want u to do";
+const fetch = require("node-fetch");
 
-import SendReq from "../components/fetch";
 import Frame from "../components/./yi/frame";
 const methods = ["GET", "POST"];
 
 export default function ReqHandler() {
   const [method, setMethod] = useState(methods[0]);
   const [url, setUrl] = useState();
-  // const [message, setMessage] = useState([er]);
 
+  const [Body, setBody] = useState([]);
   const [Accepts, setAccepts] = useState([]);
   const [Connection, setConnection] = useState([]);
   const [Content_Type, setContent_Type] = useState([]);
-  const [Data, setData] = useState({});
 
-  let checkUserForm = () => {
-    setData({ method, url, Accepts, Connection, Content_Type });
-    console.log("data", Data);
+  let SendReq = async () => {
+    try {
+      await fetch(url, {
+        method: method,
+        body: JSON.stringify(Body),
+        headers: {
+          "User-Agent": Accepts[0],
+          Accept: Accepts[1],
+          "Accept-Language": Accepts[2],
+          "Accept-Encoding": Accepts[3],
+          Connection: Connection,
+          "Content-Type": Content_Type,
+        },
+      });
+    } catch (err) {
+      console.log(err);
+    }
   };
-  const storage = [];
 
   const getAccepts = (sth) => {
     setAccepts(Accepts.concat(sth));
@@ -29,6 +40,9 @@ export default function ReqHandler() {
   };
   const getContent_Type = (sth) => {
     setContent_Type(Content_Type.concat(sth));
+  };
+  const getBody = (sth) => {
+    setBody([sth]);
   };
 
   return (
@@ -53,7 +67,7 @@ export default function ReqHandler() {
               placeholder="Fill URL here :)"
               onChange={(url) => setUrl(url.target.value)}
             ></textarea>
-            <button className="StartFetch" onClick={() => checkUserForm()}>
+            <button className="StartFetch" onClick={() => SendReq()}>
               SEND
             </button>
           </span>
@@ -63,8 +77,8 @@ export default function ReqHandler() {
         Accepts={getAccepts}
         Connection={getConnetion}
         Content_Type={getContent_Type}
+        Body={getBody}
       />
-      <SendReq reqForm={Data} />
     </div>
   );
 }
