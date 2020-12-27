@@ -26,10 +26,9 @@ function ContentType(props) {
   ];
 
   const [Content, SetContent] = useState([]);
-  useEffect(() => {
-    // props = { Content };
 
-    // console.log("프랍스입니다.", props);
+  useEffect(() => {
+    console.log("컨텐트 타입에 있는 프랍스", props);
   });
 
   return (
@@ -38,8 +37,8 @@ function ContentType(props) {
       <select
         className="Option_btn"
         onChange={(e) => {
-          SetContent(e.target.value)
-          props.junhee(e.target.value)
+          SetContent(e.target.value);
+          props.ContentType(e.target.value);
         }}
       >
         {content_Type_Beginner.map((el, idx) => {

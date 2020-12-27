@@ -12,7 +12,8 @@ function Accepts(props) {
   const [AcceptLang, SetAcceptLang] = useState();
 
   useEffect(() => {
-    props = { UserAgent, Accept, AcceptEn, AcceptLang };
+    // console.log("accepts에 있는 프랍스", props);
+    console.log(props);
   });
 
   return (
@@ -23,6 +24,7 @@ function Accepts(props) {
           className="Option_btn"
           onChange={(e) => {
             SetUserAgent(e.target.value);
+            props.Accepts(e.target.value);
           }}
         >
           {user_Agent.map((el, idx) => {
@@ -39,7 +41,10 @@ function Accepts(props) {
         Accept
         <select
           className="Option_btn"
-          onChange={(e) => SetAccept(e.target.value)}
+          onChange={(e) => {
+            SetAccept(e.target.value);
+            props.Accepts(e.target.value);
+          }}
         >
           {accept.map((el, idx) => {
             return (
@@ -55,7 +60,10 @@ function Accepts(props) {
         Accept-Language
         <select
           className="Option_btn"
-          onChange={(e) => SetAcceptEn(e.target.value)}
+          onChange={(e) => {
+            SetAcceptEn(e.target.value);
+            props.Accepts(e.target.value);
+          }}
         >
           {accept_Language.map((el, idx) => {
             return (
@@ -71,7 +79,10 @@ function Accepts(props) {
         accept_Encoding
         <select
           className="Option_btn"
-          onChange={(e) => SetAcceptLang(e.target.value)}
+          onChange={(e) => {
+            SetAcceptLang(e.target.value);
+            props.Accepts(e.target.value);
+          }}
         >
           {accept_Encoding.map((el, idx) => {
             return (

@@ -21,9 +21,9 @@ function Frame(props) {
       <div className="Request_Box">
         REQUEST
         {/* <div>{headerList}</div> */}
-        <Accepts checker={props} />
-        <Connection checker={props} />
-        <ContentType junhee={props.junhee} checker={props} />
+        <Accepts Accepts={props.Accepts} />
+        <Connection Connection={props.Connection} />
+        <ContentType ContentType={props.Content_Type} />
       </div>
 
       <div className="Response_Box">

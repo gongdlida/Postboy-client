@@ -1,38 +1,35 @@
-import { check } from "prettier";
 import React, { useState, useEffect } from "react";
-let er = "Please fill everything that we want u to do";
+// let er = "Please fill everything that we want u to do";
 
+import SendReq from "../components/fetch";
 import Frame from "../components/./yi/frame";
 const methods = ["GET", "POST"];
 
 export default function ReqHandler() {
-  const [checker, setChecker] = useState();
   const [method, setMethod] = useState(methods[0]);
   const [url, setUrl] = useState();
-  const [message, setMessage] = useState([er]);
-  const [junhee, setJunhee] = useState('')
+  // const [message, setMessage] = useState([er]);
 
-  // let gathering = () =>{
+  const [Accepts, setAccepts] = useState([]);
+  const [Connection, setConnection] = useState([]);
+  const [Content_Type, setContent_Type] = useState([]);
+  const [Data, setData] = useState({});
 
-  // }
   let checkUserForm = () => {
-    console.log("마이크쵝쵝쵝", checker);
-    // if (
-    //   checker.filiet((el) => {
-    //     if (el === undefined && el === "Select") {
-    //       alert(message);
-    //     }
-    //   })
-    // ) {
-    //   // setMessage("Please fill everything that we want u to do");
-    //   // } else {
-    //   setMessage(`Request headers are set Method : ${method}, URL : ${url}`);
-    // }
-    // alert(message);
+    setData({ method, url, Accepts, Connection, Content_Type });
+    console.log("data", Data);
   };
-  const handleJunhee = (sth) => {
-    setJunhee(sth)
-  }
+  const storage = [];
+
+  const getAccepts = (sth) => {
+    setAccepts(Accepts.concat(sth));
+  };
+  const getConnetion = (sth) => {
+    setConnection(Connection.concat(sth));
+  };
+  const getContent_Type = (sth) => {
+    setContent_Type(Content_Type.concat(sth));
+  };
 
   return (
     <div>
@@ -62,7 +59,12 @@ export default function ReqHandler() {
           </span>
         </div>
       </div>
-      <Frame junhee={handleJunhee} checker={checker} />
+      <Frame
+        Accepts={getAccepts}
+        Connection={getConnetion}
+        Content_Type={getContent_Type}
+      />
+      <SendReq reqForm={Data} />
     </div>
   );
 }

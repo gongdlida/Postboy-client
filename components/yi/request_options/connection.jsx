@@ -5,9 +5,7 @@ function Connection(props) {
   const [Connect, SetConnect] = useState([]);
 
   useEffect(() => {
-    props = { Connect };
-
-    // console.log("프랍스입니다.", props);
+    console.log("커넥트에 있는 프랍스", props);
   });
 
   return (
@@ -15,7 +13,10 @@ function Connection(props) {
       Connection
       <select
         className="Option_btn"
-        onChange={(e) => SetConnect(e.target.value)}
+        onChange={(e) => {
+          SetConnect(e.target.value);
+          props.Connection(e.target.value);
+        }}
       >
         {connection.map((el, idx) => {
           return (
