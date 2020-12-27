@@ -13,17 +13,18 @@ let headerList = request_header_options.map((el, idx) => {
 });
 
 function Frame(props) {
-  useEffect(() => {
-    console.log(props);
-  });
   return (
     <div className="Header_Box">
       <div className="Request_Box">
         REQUEST
-        {/* <div>{headerList}</div> */}
         <Accepts Accepts={props.Accepts} />
         <Connection Connection={props.Connection} />
         <ContentType ContentType={props.Content_Type} />
+        <textarea
+          className="Client_Body"
+          textholder="write body"
+          onChange={(body) => props.Body(body.target.value)}
+        ></textarea>
       </div>
 
       <div className="Response_Box">

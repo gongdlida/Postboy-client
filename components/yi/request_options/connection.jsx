@@ -4,10 +4,6 @@ function Connection(props) {
   let connection = ["Select", "keep-alive", "close"];
   const [Connect, SetConnect] = useState([]);
 
-  useEffect(() => {
-    console.log("커넥트에 있는 프랍스", props);
-  });
-
   return (
     <label className="Header_option_box">
       Connection
