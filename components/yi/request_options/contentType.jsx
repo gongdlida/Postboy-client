@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-
-function ContentType() {
+// import content_Type_Beginner from "./options";
+function ContentType(props) {
   let content_Type_Beginner = [
     "Select",
     "--APPLICATION TYPE--",
@@ -25,12 +25,22 @@ function ContentType() {
     "text/xml",
   ];
 
-  const [Accept, SetAccept] = useState([]);
+  const [Content, SetContent] = useState([]);
+
+  useEffect(() => {
+    console.log("컨텐트 타입에 있는 프랍스", props);
+  });
 
   return (
     <label className="Header_option_box">
       Content-Type
-      <select className="Option_btn">
+      <select
+        className="Option_btn"
+        onChange={(e) => {
+          SetContent(e.target.value);
+          props.ContentType(e.target.value);
+        }}
+      >
         {content_Type_Beginner.map((el, idx) => {
           return (
             <option value={el} key={idx}>
