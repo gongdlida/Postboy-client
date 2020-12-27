@@ -14,10 +14,19 @@ export default function ReqHandler() {
   const [Content_Type, setContent_Type] = useState([]);
 
   let SendReq = async () => {
+    console.log(
+      method,
+      Accepts,
+      Connection,
+      Content_Type,
+      JSON.stringify(Body),
+      url,
+      JSON.parse(Body)
+    );
     try {
       await fetch(url, {
         method: method,
-        body: JSON.stringify(Body),
+        // body: Body,
         headers: {
           "User-Agent": Accepts[0],
           Accept: Accepts[1],
@@ -25,10 +34,12 @@ export default function ReqHandler() {
           "Accept-Encoding": Accepts[3],
           Connection: Connection,
           "Content-Type": Content_Type,
+          redirect: "follow",
         },
+        body: JSON.stringify({ Body }),
       });
     } catch (err) {
-      console.log(err);
+      alert(err);
     }
   };
 
@@ -42,7 +53,7 @@ export default function ReqHandler() {
     setContent_Type(Content_Type.concat(sth));
   };
   const getBody = (sth) => {
-    setBody([sth]);
+    setBody(sth);
   };
 
   return (

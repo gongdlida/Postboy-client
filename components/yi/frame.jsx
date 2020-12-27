@@ -20,6 +20,7 @@ function Frame(props) {
         <Accepts Accepts={props.Accepts} />
         <Connection Connection={props.Connection} />
         <ContentType ContentType={props.Content_Type} />
+        <label className="Sub_Title">Body</label>
         <textarea
           className="Client_Body"
           textholder="write body"
