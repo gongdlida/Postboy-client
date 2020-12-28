@@ -1,8 +1,8 @@
 import { useState } from "react";
 import Context from "../utils/context.js";
-import "../components/yi/yi.css";
-import "../components/Title.css";
-import "../components/Nav.css";
+import "../styles/yi.css";
+import "../styles/Title.css";
+import "../styles/Nav.css";
 
 if (process.env.NODE_ENV === "development") {
   const { worker } = require("../mocks");
