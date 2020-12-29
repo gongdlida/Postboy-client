@@ -4,7 +4,6 @@ import fetch from 'node-fetch'
 import Link from 'next/link'
 
 import Context from '../utils/context.js'
-import Nav from '../components/Nav.jsx'
 
 export default function Signin() {
     const router = useRouter()
@@ -46,7 +45,6 @@ export default function Signin() {
 
     return (
         <>
-        <Nav></Nav>
         <div>
             <div>
                 <div>
@@ -65,7 +63,7 @@ export default function Signin() {
                         <button type="submit">
                             Sign in
                         </button>
-                        <Link href={'/signup'}><a><p>Or create account</p></a></Link>
+                        <Link href={'/?id=signup'}><a><p>Or create account</p></a></Link>
                     </div>
                 </form>
             </div>

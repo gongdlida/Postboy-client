@@ -1,7 +1,6 @@
 import {useState} from 'react'
-import {Router, useRouter} from 'next/router'
+import {useRouter} from 'next/router'
 import fetch from 'node-fetch'
-import Nav from '../components/Nav'
 
 export default function Signup() {
     const router = useRouter()
@@ -34,7 +33,7 @@ export default function Signup() {
             if (!response.ok) {
                 throw `Server says: ${body.message}`
             } 
-            router.push('/signin') 
+            router.push('/?id=signin') 
         } catch(e) {
             setErrormessage(e)
         }
@@ -43,7 +42,6 @@ export default function Signup() {
     
     return (
         <>
-        <Nav></Nav>
         <div>
             <div>
                 <div>
