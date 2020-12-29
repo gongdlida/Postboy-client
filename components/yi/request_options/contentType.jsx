@@ -27,10 +27,6 @@ function ContentType(props) {
 
   const [Content, SetContent] = useState([]);
 
-  useEffect(() => {
-    console.log("컨텐트 타입에 있는 프랍스", props);
-  });
-
   return (
     <label className="Header_option_box">
       Content-Type

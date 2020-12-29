@@ -5,7 +5,7 @@ body {
 
 .Request_Box {
   background: #fff;
-  border-radius: 2px;
+  border-radius: 10px;
   display: inline-block;
   height: 700px;
   margin: 1rem;
@@ -15,7 +15,7 @@ body {
 
 .Response_Box {
   background: #fff;
-  border-radius: 2px;
+  border-radius: 10px;
   display: inline-block;
   height: 700px;
   margin: 1rem;
@@ -31,5 +31,19 @@ body {
 }
 
 .Option_btn {
+  display: flex;
+}
+.Sub_Title {
+  padding: 5px;
+  display: flex;
+}
+
+.Client_Body {
+  margin: 40px;
+  height: 300px;
+  width: 600px;
+}
+
+.Header_Box {
   display: flex;
 }
