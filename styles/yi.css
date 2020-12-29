@@ -43,3 +43,7 @@ body {
   height: 300px;
   width: 600px;
 }
+
+.Header_Box {
+  display: flex;
+}

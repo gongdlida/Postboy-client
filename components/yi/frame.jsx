@@ -27,10 +27,10 @@ function Frame(props) {
           onChange={(body) => props.Body(body.target.value)}
         ></textarea>
       </div>
-
       <div className="Response_Box">
         RESPONSE
-        <div>{headerList}</div>
+        {/* <div>{headerList}</div> */}
+        <div>{props.Res}</div>
       </div>
     </div>
   );

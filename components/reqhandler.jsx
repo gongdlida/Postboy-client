@@ -1,43 +1,40 @@
-import React, { useState, useEffect } from "react";
-const fetch = require("node-fetch");
-
+import React, { useState } from "react";
+import axios from "axios";
 import Frame from "../components/./yi/frame";
+import { rule } from "postcss";
 const methods = ["GET", "POST"];
 
 export default function ReqHandler() {
   const [method, setMethod] = useState(methods[0]);
   const [url, setUrl] = useState();
-
-  const [Body, setBody] = useState([]);
   const [Accepts, setAccepts] = useState([]);
   const [Connection, setConnection] = useState([]);
   const [Content_Type, setContent_Type] = useState([]);
+  const [Body, setBody] = useState([]);
+
+  let request = {
+    headers: {
+      "User-Agent": Accepts[0],
+      Accept: Accepts[1],
+      "Accept-Language": Accepts[2],
+      "Accept-Encoding": Accepts[3],
+      Connection: Connection[0],
+      "Content-Type": Content_Type[0],
+      // redirect: "follow",
+      withCredentials: true,
+    },
+  };
 
   let SendReq = async () => {
-    console.log(
-      method,
-      Accepts,
-      Connection,
-      Content_Type,
-      JSON.stringify(Body),
-      url,
-      JSON.parse(Body)
-    );
     try {
-      await fetch(url, {
+      let res = await axios({
         method: method,
-        // body: Body,
-        headers: {
-          "User-Agent": Accepts[0],
-          Accept: Accepts[1],
-          "Accept-Language": Accepts[2],
-          "Accept-Encoding": Accepts[3],
-          Connection: Connection,
-          "Content-Type": Content_Type,
-          redirect: "follow",
-        },
-        body: JSON.stringify({ Body }),
+        url: url,
+        data: Body,
+        headers: request.headers,
       });
+      let resHeader = res;
+      console.log("Hi Response~", resHeader);
     } catch (err) {
       alert(err);
     }
