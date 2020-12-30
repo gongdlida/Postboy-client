@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
+const fetch = require("node-fetch");
 import Frame from "../components/./yi/frame";
-import { rule } from "postcss";
+
 const methods = ["GET", "POST"];
 
 export default function ReqHandler() {
@@ -11,34 +12,58 @@ export default function ReqHandler() {
   const [Connection, setConnection] = useState([]);
   const [Content_Type, setContent_Type] = useState([]);
   const [Body, setBody] = useState([]);
+  const [Res, setRes] = useState();
 
-  let request = {
-    headers: {
-      "User-Agent": Accepts[0],
-      Accept: Accepts[1],
-      "Accept-Language": Accepts[2],
-      "Accept-Encoding": Accepts[3],
-      Connection: Connection[0],
-      "Content-Type": Content_Type[0],
-      // redirect: "follow",
-      withCredentials: true,
-    },
+  const headers = new Headers();
+  headers.append("Content-Type", Content_Type[0]);
+  headers.append("User-Agent", Accepts[0]);
+  headers.append("Accept", Accepts[1]);
+  headers.append("Accept-Language", Accepts[2]);
+  headers.append("Accept-Encoding", Accepts[3]);
+  headers.append("Connection", Connection[0]);
+
+  let requestOptions = {
+    method: method,
+    headers: headers,
+    body: Body.sth,
+    // body: JSON.stringify({
+    //   username: "추워",
+    //   text: "손이 꽁꽁꽁",
+    //   roomname: "발이꽁꽁꽁",
+    // }),
   };
 
   let SendReq = async () => {
     try {
-      let res = await axios({
-        method: method,
-        url: url,
-        data: Body,
-        headers: request.headers,
+      let req = await fetch(url, requestOptions);
+      console.log(Body);
+      // .then((result) => console.log(result))
+      // .catch((error) => console.log("error", error));
+      // let data = await req;
+
+      req.headers.forEach((value, name) => {
+        //   setRes(name + ":" + value);
+        console.log(name + ":" + value);
       });
-      let resHeader = res;
-      console.log("Hi Response~", resHeader);
     } catch (err) {
-      alert(err);
+      console.log(err);
     }
   };
+
+  // let SendReq = async () => {
+  //   try {
+  //     let res = await axios({
+  //       method: method,
+  //       url: url,
+  //       data: Body,
+  //       headers: request.headers,
+  //     }).then((data) => {
+  //       setRes(data);
+  //     });
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 
   const getAccepts = (sth) => {
     setAccepts(Accepts.concat(sth));
@@ -50,7 +75,7 @@ export default function ReqHandler() {
     setContent_Type(Content_Type.concat(sth));
   };
   const getBody = (sth) => {
-    setBody(sth);
+    setBody({ sth });
   };
 
   return (
@@ -86,6 +111,7 @@ export default function ReqHandler() {
         Connection={getConnetion}
         Content_Type={getContent_Type}
         Body={getBody}
+        Res={Res}
       />
     </div>
   );
