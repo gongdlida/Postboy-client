@@ -1,25 +1,44 @@
-import React, { useState, useEffect } from "react";
-// let er = "Please fill everything that we want u to do";
-
-import SendReq from "../components/fetch";
+import React, { useState } from "react";
+import axios from "axios";
 import Frame from "../components/./yi/frame";
+import { rule } from "postcss";
 const methods = ["GET", "POST"];
 
 export default function ReqHandler() {
   const [method, setMethod] = useState(methods[0]);
   const [url, setUrl] = useState();
-  // const [message, setMessage] = useState([er]);
-
   const [Accepts, setAccepts] = useState([]);
   const [Connection, setConnection] = useState([]);
   const [Content_Type, setContent_Type] = useState([]);
-  const [Data, setData] = useState({});
+  const [Body, setBody] = useState([]);
 
-  let checkUserForm = () => {
-    setData({ method, url, Accepts, Connection, Content_Type });
-    console.log("data", Data);
+  let request = {
+    headers: {
+      "User-Agent": Accepts[0],
+      Accept: Accepts[1],
+      "Accept-Language": Accepts[2],
+      "Accept-Encoding": Accepts[3],
+      Connection: Connection[0],
+      "Content-Type": Content_Type[0],
+      // redirect: "follow",
+      withCredentials: true,
+    },
   };
-  const storage = [];
+
+  let SendReq = async () => {
+    try {
+      let res = await axios({
+        method: method,
+        url: url,
+        data: Body,
+        headers: request.headers,
+      });
+      let resHeader = res;
+      console.log("Hi Response~", resHeader);
+    } catch (err) {
+      alert(err);
+    }
+  };
 
   const getAccepts = (sth) => {
     setAccepts(Accepts.concat(sth));
@@ -30,10 +49,13 @@ export default function ReqHandler() {
   const getContent_Type = (sth) => {
     setContent_Type(Content_Type.concat(sth));
   };
+  const getBody = (sth) => {
+    setBody(sth);
+  };
 
   return (
     <footer>
-      <body>
+      <section>
           <div className="send SelectBar">
             <select
               className="send Select_menu"
@@ -52,17 +74,17 @@ export default function ReqHandler() {
               placeholder="Fill URL here :)"
               onChange={(url) => setUrl(url.target.value)}
             ></textarea>
-            <button className="StartFetch" onClick={() => checkUserForm()}>
+            <button className="StartFetch" onClick={() => SendReq()}>
               SEND
             </button>
           </div>
-      </body>
+      </section>
       <Frame
         Accepts={getAccepts}
         Connection={getConnetion}
         Content_Type={getContent_Type}
+        Body={getBody}
       />
-      <SendReq reqForm={Data} />
     </footer>
   );
 }

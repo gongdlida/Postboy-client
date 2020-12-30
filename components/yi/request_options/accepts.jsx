@@ -11,11 +11,6 @@ function Accepts(props) {
   const [AcceptEn, SetAcceptEn] = useState();
   const [AcceptLang, SetAcceptLang] = useState();
 
-  useEffect(() => {
-    // console.log("accepts에 있는 프랍스", props);
-    console.log(props);
-  });
-
   return (
     <>
       <label className="Header_option_box">
@@ -76,7 +71,7 @@ function Accepts(props) {
       </label>
 
       <label className="Header_option_box">
-        accept_Encoding
+        Accept_Encoding
         <select
           className="Option_btn"
           onChange={(e) => {

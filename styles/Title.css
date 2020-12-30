@@ -1,8 +1,8 @@
 /** @format */
 .Postboy {
   display: block;
-  width: 30%;
-  height: 40%;
+  width: 20%;
+  height: 30%;
   flex-basis: 60%;
 }
 
@@ -16,4 +16,21 @@
   font-weight: bold;
   flex-basis: 40%;
   text-align: center;
+}
+section {
+  margin-left: 15%;
+}
+.SelectBar {
+  display: flex;
+}
+.SendText {
+  flex-basis: 60%;
+}
+.Select_menu {
+  /* border: 3px solid greenyellow; */
+  background: #ffd54f;
+  flex-basis: 10%;
+}
+.StartFetch {
+  flex-basis: 15%;
 }
