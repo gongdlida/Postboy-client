@@ -54,12 +54,11 @@ export default function ReqHandler() {
   };
 
   return (
-    <div>
-      <div className="sendMessage">
-        <div>
-          <span className="SelectBar">
+    <footer>
+      <section>
+          <div className="send SelectBar">
             <select
-              className="Select_menu"
+              className="send Select_menu"
               onChange={(e) => setMethod(e.target.value)}
             >
               {methods.map((el, idx) => {
@@ -71,22 +70,21 @@ export default function ReqHandler() {
               })}
             </select>
             <textarea
-              className="SendText"
+              className="send SendText"
               placeholder="Fill URL here :)"
               onChange={(url) => setUrl(url.target.value)}
             ></textarea>
             <button className="StartFetch" onClick={() => SendReq()}>
               SEND
             </button>
-          </span>
-        </div>
-      </div>
+          </div>
+      </section>
       <Frame
         Accepts={getAccepts}
         Connection={getConnetion}
         Content_Type={getContent_Type}
         Body={getBody}
       />
-    </div>
+    </footer>
   );
 }

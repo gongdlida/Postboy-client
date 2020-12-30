@@ -1,76 +1,36 @@
 /** @format */
-.Main_area {
-  /* flex-direction: row;
-  width: 60%;
-  border: 0.2rem solid rgb(0, 0, 0);
-  padding: 2rem; */
-}
-.SendMessage {
-  display: flex;
-  border: 3px solid red;
-  width: 100%;
+.Postboy {
+  display: block;
+  width: 20%;
+  height: 30%;
+  flex-basis: 60%;
 }
 
 .Explain_box {
-  margin: auto;
-  width: 60%;
-  border: 3px solid green;
+  width: 100%;
   padding: 5px;
 }
 
 .Explain {
-  font-size: 1.3rem;
-  text-align: left;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
+  font-size: 1.6rem;
   font-weight: bold;
-  border: 3px solid blue;
+  flex-basis: 40%;
+  text-align: center;
 }
-.Who_made {
-  font-size: 1.3rem;
-  text-align: left;
-  font-weight: bold;
-  border: 3px solid pink;
+section {
+  margin-left: 15%;
 }
-.Member {
-  font-size: 1rem;
-  text-align: left;
-  margin-bottom: 10px;
-  font-weight: bold;
-  color: rgb(106, 106, 106);
-  border: 3px solid purple;
+.SelectBar {
+  display: flex;
 }
-.Postboy {
-  display: block;
-  width: 10%;
-  margin: auto;
-  border: 3px solid purple;
-}
-/* @media (max-width: 425px) {
-  .Postboy {
-    border-radius: 30%;
-  }
-} */
-
 .SendText {
-  width: 80%;
-  border: 3px solid purple;
+  flex-basis: 60%;
 }
 .Select_menu {
-  border: 3px solid greenyellow;
+  /* border: 3px solid greenyellow; */
+  background: #ffd54f;
+  flex-basis: 10%;
 }
 .StartFetch {
-  width: 10%;
-}
-.Request_box {
-  border: 3px solid yellow;
-  font-size: 1.3rem;
-}
-.Respond_box {
-  border: 3px solid orange;
-  font-size: 1.3rem;
-}
-.Request_Respond {
-  display: flex;
-  flex-direction: row;
+  flex-basis: 15%;
 }

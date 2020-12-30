@@ -14,7 +14,8 @@ let headerList = request_header_options.map((el, idx) => {
 
 function Frame(props) {
   return (
-    <div className="Header_Box">
+    <body className="Header_Box">
+      <div className="History_Box">History</div>
       <div className="Request_Box">
         REQUEST
         <Accepts Accepts={props.Accepts} />
@@ -32,7 +33,7 @@ function Frame(props) {
         {/* <div>{headerList}</div> */}
         <div>{props.Res}</div>
       </div>
-    </div>
+    </body>
   );
 }
 

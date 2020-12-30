@@ -1,32 +1,55 @@
 body {
-  background: #e2e1e0;
   text-align: center;
+  justify-content: center;
 }
 
 .Request_Box {
-  background: #fff;
+  flex-basis: 25%;
   border-radius: 10px;
   display: inline-block;
-  height: 700px;
+  height: 25rem;
+  width: 28rem;
   margin: 1rem;
-  position: relative;
-  width: 700px;
+  font-weight: bold;
+  font-size: 0.8rem;
+  border: 0.15rem solid black;
 }
 
 .Response_Box {
-  background: #fff;
+  flex-basis: 25%;
   border-radius: 10px;
   display: inline-block;
-  height: 700px;
+  height: 25rem;
+  width: 28rem;
   margin: 1rem;
-  position: relative;
-  width: 700px;
+  font-weight: bold;
+  font-size: 0.8rem;
+  border: 0.15rem solid black;
+}
+.History_Box {
+  flex-basis: 25%;
+  border-radius: 10px;
+  display: inline-block;
+  height: 25rem;
+  width: 28rem;
+  margin: 1rem;
+  font-weight: bold;
+  font-size: 0.8rem;
+  border: 0.15rem solid black;
+}
+
+.Header_Box {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
 }
 
 .Header_option_box {
   display: flex;
   vertical-align: middle;
-  background: yellow;
+  font-style: italic;
+  font-weight: bold;
+  background: #ffd54f;
   padding: 3px 5px;
 }
 
@@ -39,9 +62,8 @@ body {
 }
 
 .Client_Body {
-  margin: 40px;
-  height: 300px;
-  width: 600px;
+  height: 40%;
+  width: 80%;
 }
 
 .Header_Box {
