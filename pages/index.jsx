@@ -1,5 +1,7 @@
-import ReqHandler from "../components/reqhandler";
+import Nav from "../components/Nav";
 import Title from "../components/Title";
+// import Request from "../components/Request"
+import ReqHandler from "../components/reqhandler";
 
 // import Frame from "../components/./yi/frame";
 

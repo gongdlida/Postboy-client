@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 const fetch = require("node-fetch");
 import Frame from "../components/./yi/frame";
 
-const methods = ["GET", "POST"];
+const methods = ["SELECT", "GET", "POST"];
 
 export default function ReqHandler() {
   const [method, setMethod] = useState(methods[0]);
@@ -12,58 +11,38 @@ export default function ReqHandler() {
   const [Connection, setConnection] = useState([]);
   const [Content_Type, setContent_Type] = useState([]);
   const [Body, setBody] = useState([]);
-  const [Res, setRes] = useState();
+  const [Res, setRes] = useState("");
 
   const headers = new Headers();
-  headers.append("Content-Type", Content_Type[0]);
+  headers.append("Content-Type", Content_Type[Content_Type.length - 1]);
   headers.append("User-Agent", Accepts[0]);
   headers.append("Accept", Accepts[1]);
   headers.append("Accept-Language", Accepts[2]);
   headers.append("Accept-Encoding", Accepts[3]);
-  headers.append("Connection", Connection[0]);
+  headers.append("Connection", Connection[Connection.length - 1]);
 
   let requestOptions = {
     method: method,
     headers: headers,
-    body: Body.sth,
-    // body: JSON.stringify({
-    //   username: "추워",
-    //   text: "손이 꽁꽁꽁",
-    //   roomname: "발이꽁꽁꽁",
-    // }),
+    body: Body,
   };
 
   let SendReq = async () => {
     try {
-      let req = await fetch(url, requestOptions);
-      console.log(Body);
-      // .then((result) => console.log(result))
-      // .catch((error) => console.log("error", error));
-      // let data = await req;
-
-      req.headers.forEach((value, name) => {
-        //   setRes(name + ":" + value);
-        console.log(name + ":" + value);
-      });
+      let req = await fetch("http://localhost:4000/messages", requestOptions);
+      let resHeader = await req;
+      let storage = [];
+      storage.push(method);
+      storage.push(resHeader);
+      for (var pair of req.headers.entries()) {
+        storage.push(pair[0] + ": " + pair[1]);
+      }
+      setRes(storage);
+      console.log("res", Res);
     } catch (err) {
       console.log(err);
     }
   };
-
-  // let SendReq = async () => {
-  //   try {
-  //     let res = await axios({
-  //       method: method,
-  //       url: url,
-  //       data: Body,
-  //       headers: request.headers,
-  //     }).then((data) => {
-  //       setRes(data);
-  //     });
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
 
   const getAccepts = (sth) => {
     setAccepts(Accepts.concat(sth));
@@ -75,37 +54,35 @@ export default function ReqHandler() {
     setContent_Type(Content_Type.concat(sth));
   };
   const getBody = (sth) => {
-    setBody({ sth });
+    setBody(sth);
   };
 
   return (
-    <div>
-      <div className="sendMessage">
-        <div>
-          <span className="SelectBar">
-            <select
-              className="Select_menu"
-              onChange={(e) => setMethod(e.target.value)}
-            >
-              {methods.map((el, idx) => {
-                return (
-                  <option key={idx} value={el}>
-                    {el}
-                  </option>
-                );
-              })}
-            </select>
-            <textarea
-              className="SendText"
-              placeholder="Fill URL here :)"
-              onChange={(url) => setUrl(url.target.value)}
-            ></textarea>
-            <button className="StartFetch" onClick={() => SendReq()}>
-              SEND
-            </button>
-          </span>
+    <footer>
+      <section>
+        <div className="send SelectBar">
+          <select
+            className="send Select_menu"
+            onChange={(e) => setMethod(e.target.value)}
+          >
+            {methods.map((el, idx) => {
+              return (
+                <option key={idx} value={el}>
+                  {el}
+                </option>
+              );
+            })}
+          </select>
+          <textarea
+            className="send SendText"
+            placeholder="Fill URL here :)"
+            onChange={(url) => setUrl(url.target.value)}
+          ></textarea>
+          <button className="StartFetch" onClick={() => SendReq()}>
+            SEND
+          </button>
         </div>
-      </div>
+      </section>
       <Frame
         Accepts={getAccepts}
         Connection={getConnetion}
@@ -113,6 +90,6 @@ export default function ReqHandler() {
         Body={getBody}
         Res={Res}
       />
-    </div>
+    </footer>
   );
 }

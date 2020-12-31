@@ -1,29 +1,39 @@
 import React, { useState, useEffect } from "react";
-import request_header_options from "./optionList.jsx";
 import Connection from "./request_options/connection";
 import Accepts from "./request_options/accepts";
 import ContentType from "./request_options/contentType";
 
-let headerList = request_header_options.map((el, idx) => {
-  return (
-    <div key={idx}>
-      <label className="Header_option_box">{el}</label>
-    </div>
-  );
-});
-
 function Frame(props) {
-  let checkRes = () => {
+  let asd = () => {
     if (props.Res) {
-      console.log(props.Res);
-      return <div>Yes</div>;
+      // console.log("test1", props.Res);
+      console.log("test1", props.Res[0]);
+      console.log("test2", props.Res[1]);
+      console.log("test3", props.Res[2]);
     } else {
-      return <div>No</div>;
     }
   };
+  let r;
+  let resList = [
+    "Url",
+    "Method",
+    "Status Code",
+    "Connection",
+    "Content-Length",
+    "Content-Type",
+  ];
+
+  let resListUp = resList.map((el, idx) => {
+    return (
+      <div key={idx}>
+        <label className="Header_option_box">{el}</label>
+      </div>
+    );
+  });
 
   return (
     <div className="Header_Box">
+      <div className="History_Box">History</div>
       <div className="Request_Box">
         REQUEST
         <Accepts Accepts={props.Accepts} />
@@ -33,20 +43,16 @@ function Frame(props) {
         <textarea
           className="Client_Body"
           textholder="write body"
-          onChange={(body) => props.Body(JSON.stringify(body.target.value))}
+          onChange={(body) => props.Body(body.target.value)}
         ></textarea>
       </div>
-
-      <div className="Response_Box" style={{ display: "inline-block" }}>
+      <div className="Response_Box">
         RESPONSE
-        <div>{checkRes()}</div>
+        <div>{resListUp}</div>
+        <div>{asd()}</div>
       </div>
     </div>
   );
 }
 
 export default Frame;
-
-/*
-response에 값이 들어왔을 때 
-*/
