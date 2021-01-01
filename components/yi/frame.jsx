@@ -24,6 +24,9 @@ function Frame(props) {
   ];
 
   let resListUp = resList.map((el, idx) => {
+    if (props.response) {
+      console.log("frame", props.response);
+    }
     return (
       <div key={idx}>
         <label className="Header_option_box">{el}</label>

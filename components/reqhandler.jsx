@@ -29,7 +29,10 @@ export default function ReqHandler() {
 
   let SendReq = async () => {
     try {
-      let request = await fetch(url, requestOptions);
+      let request = await fetch(
+        "http://localhost:4000/messages",
+        requestOptions
+      );
       let storage = [];
       storage.push(method);
       storage.push(request);
@@ -41,10 +44,11 @@ export default function ReqHandler() {
         storage.concat(
           request.url,
           method,
-          `${request.staus} ${request.statusText}`
+          `${request.status} ${request.statusText}`
         )
       );
-      console.log(request);
+      console.log("response안에 들어있는 것.", response);
+      // console.log(request);
       console.log("This form will be into the Response box", {
         URL: `${request.url}`,
         Method: method,
@@ -102,6 +106,7 @@ export default function ReqHandler() {
         Connection={getConnetion}
         Content_Type={getContent_Type}
         Body={getBody}
+        response={response}
       />
     </footer>
   );
