@@ -11,7 +11,7 @@ export default function ReqHandler() {
   const [Connection, setConnection] = useState([]);
   const [Content_Type, setContent_Type] = useState([]);
   const [Body, setBody] = useState([]);
-  const [Res, setRes] = useState("");
+  const [response, setResponse] = useState("");
 
   const headers = new Headers();
   headers.append("Content-Type", Content_Type[Content_Type.length - 1]);
@@ -29,16 +29,30 @@ export default function ReqHandler() {
 
   let SendReq = async () => {
     try {
-      let req = await fetch("http://localhost:4000/messages", requestOptions);
-      let resHeader = await req;
+      let request = await fetch(url, requestOptions);
       let storage = [];
       storage.push(method);
-      storage.push(resHeader);
-      for (var pair of req.headers.entries()) {
-        storage.push(pair[0] + ": " + pair[1]);
+      storage.push(request);
+      for (var pair of request.headers.entries()) {
+        console.log(pair[0] + ":" + pair[1]);
+        storage.push(pair[1]);
       }
-      setRes(storage);
-      console.log("res", Res);
+      setResponse(
+        storage.concat(
+          request.url,
+          method,
+          `${request.staus} ${request.statusText}`
+        )
+      );
+      console.log(request);
+      console.log("This form will be into the Response box", {
+        URL: `${request.url}`,
+        Method: method,
+        "Status Code": `${request.status} ${request.statusText}`,
+        "Content-Length": response[0],
+        "Content-Type": response[1],
+        Body: JSON.parse(Body),
+      });
     } catch (err) {
       console.log(err);
     }
@@ -88,7 +102,6 @@ export default function ReqHandler() {
         Connection={getConnetion}
         Content_Type={getContent_Type}
         Body={getBody}
-        Res={Res}
       />
     </footer>
   );

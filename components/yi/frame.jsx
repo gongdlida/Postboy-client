@@ -6,7 +6,7 @@ import ContentType from "./request_options/contentType";
 function Frame(props) {
   let asd = () => {
     if (props.Res) {
-      // console.log("test1", props.Res);
+      console.log("test1", props.Res);
       console.log("test1", props.Res[0]);
       console.log("test2", props.Res[1]);
       console.log("test3", props.Res[2]);
