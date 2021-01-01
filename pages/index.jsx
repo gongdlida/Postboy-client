@@ -15,10 +15,10 @@ export default function Home() {
   return (
     <>
       {["signin", "signup", "signout", "mypage", "nav"].map((item, idx) => (
-        <ModalRouter key={idx} id={item} />
+        <ModalRouter key={idx} id={item}/>
       ))}
       <Link href={"/?id=nav"}>
-        <a>Hamburger</a>
+        <a className="Ham_menu">Hamburger</a>
       </Link>
       <Title></Title>
       <ReqHandler />

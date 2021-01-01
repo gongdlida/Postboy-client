@@ -29,7 +29,7 @@ function ContentType(props) {
 
   return (
     <label className="Header_option_box">
-      Content-Type
+      Content_Type
       <select
         className="Option_btn"
         onChange={(e) => {
