@@ -13,7 +13,7 @@ function Frame(props) {
     } else {
     }
   };
-  let r;
+
   let resList = [
     "Url",
     "Method",
@@ -33,6 +33,19 @@ function Frame(props) {
       </div>
     );
   });
+
+  // let resListUp =() => {
+  //   if (props.response) {
+  //     props.response.map((el,idx)=>{
+  //     <div key ={idx}></div>
+  //   })
+  //   }
+  //   return (
+  //     <div key={idx}>
+  //       <label className="Header_option_box">{el}</label>
+  //     </div>
+  //   );
+  // });
 
   return (
     <div className="Header_Box">

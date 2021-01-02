@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-const fetch = require("node-fetch");
-import Frame from "../components/./yi/frame";
 
+import Frame from "../components/./yi/frame";
+const fetch = require("node-fetch");
 const methods = ["SELECT", "GET", "POST"];
+import OrangeButton from "./OrangeButton";
 
 export default function ReqHandler() {
   const [method, setMethod] = useState(methods[0]);
@@ -29,10 +30,7 @@ export default function ReqHandler() {
 
   let SendReq = async () => {
     try {
-      let request = await fetch(
-        "http://localhost:4000/messages",
-        requestOptions
-      );
+      let request = await fetch(url, requestOptions);
       let storage = [];
       storage.push(method);
       storage.push(request);
@@ -47,7 +45,7 @@ export default function ReqHandler() {
           `${request.status} ${request.statusText}`
         )
       );
-      console.log("response안에 들어있는 것.", response);
+      // console.log("response안에 들어있는 것.", response);
       // console.log(request);
       console.log("This form will be into the Response box", {
         URL: `${request.url}`,
@@ -80,7 +78,7 @@ export default function ReqHandler() {
       <section>
         <div className="send SelectBar">
           <select
-            className="send Select_menu"
+            className="send Select_menu bg-yellow-300"
             onChange={(e) => setMethod(e.target.value)}
           >
             {methods.map((el, idx) => {
@@ -91,14 +89,15 @@ export default function ReqHandler() {
               );
             })}
           </select>
-          <textarea
-            className="send SendText"
+          <input
+            type="text"
+            className="flex-1 bg-yellow-100 rounded focus:ring-0 border-2 border-transparent focus:border-yellow-400"
             placeholder="Fill URL here :)"
             onChange={(url) => setUrl(url.target.value)}
-          ></textarea>
-          <button className="StartFetch" onClick={() => SendReq()}>
+          ></input>
+          <OrangeButton className="StartFetch" onClick={() => SendReq()}>
             SEND
-          </button>
+          </OrangeButton>
         </div>
       </section>
       <Frame
