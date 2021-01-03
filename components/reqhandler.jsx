@@ -11,17 +11,26 @@ export default function ReqHandler() {
   const [Accepts, setAccepts] = useState([]);
   const [Connection, setConnection] = useState([]);
   const [Content_Type, setContent_Type] = useState([]);
+  const [withCredentials, setWithCredentials] = useState([]);
   const [Body, setBody] = useState([]);
   const [response, setResponse] = useState("");
-  const [error, setError] = useState("");
 
   const headers = new Headers();
-  headers.append("Content-Type", Content_Type[Content_Type.length - 1]);
-  headers.append("User-Agent", Accepts[0]);
-  headers.append("Accept", Accepts[1]);
-  headers.append("Accept-Language", Accepts[2]);
-  headers.append("Accept-Encoding", Accepts[3]);
+  headers.append("User-Agent", "Postboy");
+  headers.append("Accept", "*/*");
+  headers.append("Accept-Language", "utf-8");
+  headers.append("Accept-Encoding", "gzip,deflate,br");
   headers.append("Connection", Connection[Connection.length - 1]);
+
+  if (Content_Type !== "OPTIONAL") {
+    headers.append("Content-Type", Content_Type[Content_Type.length - 1]);
+  }
+  if (withCredentials !== "OPTIONAL") {
+    let flag;
+    withCredentials === "false" ? (flag = false) : (flag = true);
+    headers.append("withCredentials", flag);
+  }
+
   let requestOptions = {
     method: method,
     headers: headers,
@@ -58,7 +67,7 @@ export default function ReqHandler() {
         },
       ]);
     } catch (err) {
-      setError("Error" + err.message);
+      console.log("Error" + err.message);
     }
   };
   const getAccepts = (option) => {
@@ -70,6 +79,10 @@ export default function ReqHandler() {
   const getContent_Type = (option) => {
     setContent_Type(Content_Type.concat(option));
   };
+  const getWithCredentials = (option) => {
+    setWithCredentials(withCredentials.concat(option));
+  };
+
   const getBody = (text) => {
     setBody(text);
   };
@@ -105,8 +118,8 @@ export default function ReqHandler() {
         Connection={getConnetion}
         Content_Type={getContent_Type}
         Body={getBody}
+        Credential={getWithCredentials}
         response={response}
-        err={error}
       />
     </footer>
   );

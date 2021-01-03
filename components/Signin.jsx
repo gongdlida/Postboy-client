@@ -35,7 +35,7 @@ export default function Signin() {
       });
       router.push("/");
     } catch (e) {
-      alert(e);
+      setErrormessage(e);
     }
   };
   return (

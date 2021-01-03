@@ -3,8 +3,6 @@ import React, { useState, useEffect } from "react";
 import RequestOptions from "./requestOptions";
 
 function Frame(props) {
-  console.log("test1", props.response);
-
   let resList = [
     "Url",
     "Method",

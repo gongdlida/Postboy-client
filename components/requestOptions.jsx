@@ -6,8 +6,9 @@ function RequestOptions(props) {
   let accept_Encoding = ["gzip,deflate,br"];
   let accept_Language = ["utf-8"];
   let connection = ["keep-alive", "close"];
+  let withCredentials = ["OPTIONAL", "true", "false"];
   let content_Type_Beginner = [
-    "Select",
+    "OPTIONAL",
     "application/json",
     "application/javascript",
     "application/pdf",
@@ -138,6 +139,24 @@ function RequestOptions(props) {
           }}
         >
           {content_Type_Beginner.map((el, idx) => {
+            return (
+              <option value={el} key={idx}>
+                {el}
+              </option>
+            );
+          })}
+        </select>
+      </label>
+      <label className="Header_option_box">
+        withCredentials
+        <select
+          className="Option_btn"
+          onChange={(e) => {
+            SetContent(e.target.value);
+            props.Credential(e.target.value);
+          }}
+        >
+          {withCredentials.map((el, idx) => {
             return (
               <option value={el} key={idx}>
                 {el}

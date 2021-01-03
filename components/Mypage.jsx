@@ -46,8 +46,8 @@ export default function Mypage() {
     return (
       <>
         <button onClick={handleAdd}>Click to add history</button>
-        <button onClick={handleClear}>Click to clear history</button>
-        <div>Your request history is </div>
+        <button onClick={handleClear}>Clear History</button>
+        <div>History</div>
         <ul>
           {history.map((item) => (
             <li>

@@ -35,7 +35,7 @@ export default function Signup() {
       }
       router.push("/?id=signin");
     } catch (e) {
-      console.log(e);
+      setErrormessage(e);
     }
   };
   return (
