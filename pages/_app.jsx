@@ -5,9 +5,9 @@ import "../styles/Title.css";
 import "../styles/Nav.css";
 import "../globals.css";
 
-if (process.env.NODE_ENV === "development") {
-  const { worker } = require("../mocks");
-}
+// if (process.env.NODE_ENV === "development") {
+//   const { worker } = require("../mocks");
+// }
 
 function MyApp({ Component, pageProps }) {
   const [user, setUser] = useState({

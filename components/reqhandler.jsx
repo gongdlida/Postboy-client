@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import Frame from "../components/./yi/frame";
+import Frame from "../components/frame";
 const fetch = require("node-fetch");
 const methods = ["SELECT", "GET", "POST"];
 import OrangeButton from "./OrangeButton";

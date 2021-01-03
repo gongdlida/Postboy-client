@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Connection from "./request_options/connection";
-import Accepts from "./request_options/accepts";
-import ContentType from "./request_options/contentType";
+
+import RequestOptions from "./requestOptions";
 
 function Frame(props) {
   let asd = () => {
@@ -52,9 +51,11 @@ function Frame(props) {
       <div className="History_Box">History</div>
       <div className="Request_Box">
         REQUEST
-        <Accepts Accepts={props.Accepts} />
-        <Connection Connection={props.Connection} />
-        <ContentType ContentType={props.Content_Type} />
+        <RequestOptions
+          Accepts={props.Accepts}
+          Connection={props.Connection}
+          ContentType={props.Content_Type}
+        />
         <label className="Sub_Title">Body</label>
         <textarea
           className="Client_Body"
