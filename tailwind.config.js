@@ -13,9 +13,6 @@ module.exports = {
   variants: {
     extend: {},
   },
-};
-
-module.exports = {
   purge: ["./src/**/*.html", "./src/**/*.vue", "./src/**/*.jsx"],
   theme: {},
   variants: {},
