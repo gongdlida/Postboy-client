@@ -3,6 +3,7 @@ import Context from "../utils/context.js";
 import "../styles/yi.css";
 import "../styles/Title.css";
 import "../styles/Nav.css";
+import "../globals.css";
 
 if (process.env.NODE_ENV === "development") {
   const { worker } = require("../mocks");
