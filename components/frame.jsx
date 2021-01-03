@@ -49,8 +49,8 @@ function Frame(props) {
         REQUEST
           <label className="Sub_Title">Body</label>        
         <textarea
-          className="Client_Body"
-          textholder="write body"
+          className="p-16 w-full bg-orange-50 rounded focus:ring-0 border-2 border-transparent focus:border-orange-500 mb-6 resize-none"
+          placeholder="{username: , text: , roomname}"
           onChange={(body) => props.Body(body.target.value)}
         ></textarea>
         <RequestOptions

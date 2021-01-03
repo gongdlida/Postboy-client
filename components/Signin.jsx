@@ -63,7 +63,7 @@ export default function Signin() {
               value={password}
               placeholder="Password"
             />
-            <div className="mt-4 w-full bg-orange-400 flex justify-center rounded">
+            <div className="mt-4 w-full bg-yellow-400 flex justify-center rounded">
               <OrangeButton>Sign in</OrangeButton>
             </div>
             <p className="mt-2">{errormessage}</p>

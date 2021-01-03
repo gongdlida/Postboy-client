@@ -13,19 +13,21 @@
 }
 
 section {
-  margin-left: 5%;
+  margin-left: 3%;
   display: block;
 }
 
 .SelectBar {
   display: flex;
-  width: 95%;
+  width: 96%;
+  height: 2.2rem;
 }
 
 .Select_menu {
   /* border: 3px solid greenyellow; */
   background: #ffd54f;
-  flex-basis: 12%;
+  flex-basis: 10%;
+  margin-right: 0.5rem;
 }
 .StartFetch {
   flex-basis: 18%;

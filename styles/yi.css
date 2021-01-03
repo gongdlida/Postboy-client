@@ -2,36 +2,21 @@
   flex: auto;
   border-radius: 10px;
   display: inline-block;
-  height: 22rem;
+  height: 26rem;
   width: 22rem;
   margin: 1rem;
   font-weight: bold;
   font-size: 0.8rem;
   border: 0.15rem solid black;
 }
-@media screen and (max-width: 425px) {
-  .Request_Box {
-    width: 22rem;
-  }
-}
+
 .Response_Box {
   flex: auto;
   border-radius: 10px;
   display: inline-block;
-  height: 22rem;
+  height: 26rem;
   width: 22rem;
 
-  margin: 1rem;
-  font-weight: bold;
-  font-size: 0.8rem;
-  border: 0.15rem solid black;
-}
-.History_Box {
-  flex: auto;
-  border-radius: 10px;
-  display: inline-block;
-  height: 22rem;
-  width: 22rem;
   margin: 1rem;
   font-weight: bold;
   font-size: 0.8rem;
@@ -69,11 +54,6 @@
 .Sub_Title {
   padding: 5px;
   display: flex;
-}
-
-.Client_Body {
-  height: 40%;
-  width: 80%;
 }
 
 .Header_Box {
