@@ -13,6 +13,7 @@ export default function Title() {
   const [user, setUser] = useContext(Context).userContext;
   const [history, setHistory] = useContext(Context).historyContext;
   const latest = history[history.length - 1];
+
   return (
     <header className="flex justify-between px-4 py-4 items-center">
       {["signin", "signup", "signout", "mypage"].map((item, idx) => (

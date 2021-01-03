@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
-
+import React, { useState, useContext } from "react";
+import Context from "../utils/context.js";
 import Frame from "../components/frame";
 const fetch = require("node-fetch");
 const methods = ["SELECT", "GET", "POST"];
 import OrangeButton from "./OrangeButton";
 
 export default function ReqHandler() {
+  const [history, setHistory] = useContext(Context).historyContext;
   const [method, setMethod] = useState(methods[0]);
   const [url, setUrl] = useState();
   const [Accepts, setAccepts] = useState([]);
@@ -25,35 +26,49 @@ export default function ReqHandler() {
   let requestOptions = {
     method: method,
     headers: headers,
-    body: Body,
   };
 
   let SendReq = async () => {
     try {
-      let request = await fetch(url, requestOptions);
+      if (requestOptions.method === "POST") {
+        requestOptions.body = Body;
+      }
+      let response = await fetch(
+        "http://localhost:4000/messages",
+        requestOptions
+      );
       let storage = [];
       storage.push(method);
-      storage.push(request);
-      for (var pair of request.headers.entries()) {
-        console.log(pair[0] + ":" + pair[1]);
+      storage.push(response);
+      for (var pair of response.headers.entries()) {
         storage.push(pair[1]);
       }
+
       setResponse(
         storage.concat(
-          request.url,
+          response.url,
           method,
-          `${request.status} ${request.statusText}`
+          `${response.status} ${response.statusText}`,
+          response.text()
         )
       );
+      setHistory((pastHistory) => [
+        ...pastHistory,
+        {
+          url: url,
+          methodType: method,
+          status: response.status,
+          statusText: response.statusText,
+        },
+      ]);
       // console.log("response안에 들어있는 것.", response);
-      // console.log(request);
+      console.log("client's server side", response);
       console.log("This form will be into the Response box", {
-        URL: `${request.url}`,
+        URL: `${response.url}`,
         Method: method,
-        "Status Code": `${request.status} ${request.statusText}`,
+        "Status Code": `${response.status} ${response.statusText}`,
         "Content-Length": response[0],
         "Content-Type": response[1],
-        Body: JSON.parse(Body),
       });
     } catch (err) {
       console.log(err);
@@ -89,12 +104,11 @@ export default function ReqHandler() {
               );
             })}
           </select>
-          <input
-            type="text"
+          <textarea
             className="flex-1 bg-yellow-100 rounded focus:ring-0 border-2 border-transparent focus:border-yellow-400"
             placeholder="Fill URL here :)"
             onChange={(url) => setUrl(url.target.value)}
-          ></input>
+          ></textarea>
           <OrangeButton className="StartFetch" onClick={() => SendReq()}>
             SEND
           </OrangeButton>

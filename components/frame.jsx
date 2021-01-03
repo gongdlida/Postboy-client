@@ -6,9 +6,6 @@ function Frame(props) {
   let asd = () => {
     if (props.Res) {
       console.log("test1", props.Res);
-      console.log("test1", props.Res[0]);
-      console.log("test2", props.Res[1]);
-      console.log("test3", props.Res[2]);
     } else {
     }
   };
@@ -22,16 +19,16 @@ function Frame(props) {
     "Content-Type",
   ];
 
-  let resListUp = resList.map((el, idx) => {
-    if (props.response) {
-      console.log("frame", props.response);
-    }
-    return (
-      <div key={idx}>
-        <label className="Header_option_box">{el}</label>
-      </div>
-    );
-  });
+  // let resListUp = resList.map((el, idx) => {
+  //   if (props.response) {
+  //     console.log("frame", props.response);
+  //   }
+  //   return (
+  //     <div key={idx}>
+  //       <label className="Header_option_box">{el}</label>
+  //     </div>
+  //   );
+  // });
 
   // let resListUp =() => {
   //   if (props.response) {
@@ -45,7 +42,7 @@ function Frame(props) {
   //     </div>
   //   );
   // });
-
+  console.log(props.response[7]);
   return (
     <div className="Header_Box">
       <div className="History_Box">History</div>
@@ -65,8 +62,13 @@ function Frame(props) {
       </div>
       <div className="Response_Box">
         RESPONSE
-        <div>{resListUp}</div>
+        {/* <div>{resListUp}</div> */}
         <div>{asd()}</div>
+        <textarea
+          className="p-16 w-full bg-orange-50 rounded focus:ring-0 border-2 border-transparent focus:border-orange-500 mb-6 resize-none"
+          placeholder="No Response Yet..."
+          value={props.response[7]}
+        ></textarea>
       </div>
     </div>
   );
