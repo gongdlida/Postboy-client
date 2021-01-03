@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import fetch from "node-fetch";
+import OrangeButton from "./OrangeButton";
 export default function Signup() {
   const router = useRouter();
   const [email, setEmail] = useState("");
@@ -39,48 +40,54 @@ export default function Signup() {
   };
   return (
     <>
-      <div>
+      <div className="h-full">
         <div>
           <div>
-            <img src="/postboy.png" alt="Workflow" />
-            <h2>Create account</h2>
-            <p>And Enjoy</p>
-            <ul>
-              <li>Autosave of your requests</li>
-              <li>Statistics of your requests</li>
-            </ul>
+            <img
+              className="mx-auto h-16"
+              src="/noneStr.png"
+              alt="Postboy logo"
+            />
+            <h2 className="mt-4 text-center text-3xl font-bold text-gray-900">
+              Create account
+            </h2>
           </div>
-          <form onSubmit={handleSubmit}>
-            <div>
+          <form className="mt-4 " onSubmit={handleSubmit}>
+            <div className="">
               <input
+                className="w-full px-3 py-2 border border-gray-300 rounded-t-md"
                 onChange={(e) => setEmail(e.target.value)}
                 type="email"
                 value={email}
                 placeholder="Email address"
               />
               <input
+                className="w-full px-3 py-2 border border-gray-300"
                 onChange={(e) => setNickname(e.target.value)}
                 type="text"
                 value={nickname}
                 placeholder="Nickname"
               />
               <input
+                className="w-full px-3 py-2 border border-gray-300"
                 onChange={(e) => setPassword(e.target.value)}
                 type="password"
                 value={password}
                 placeholder="Password"
               />
               <input
+                className="w-full px-3 py-2 border border-gray-300 rounded-b-md"
                 onChange={(e) => setconfirmPassword(e.target.value)}
                 type="password"
                 value={confirmPassword}
                 placeholder="Confirm Password"
               />
-              <p>{errormessage}</p>
+              <div className="mt-4 w-full bg-orange-400 flex justify-center rounded">
+                <OrangeButton>Create account</OrangeButton>
+              </div>
+              <p className="mt-2">{errormessage}</p>
             </div>
-            <div>
-              <button type="submit">Create account</button>
-            </div>
+            <div></div>
           </form>
         </div>
       </div>

@@ -1,10 +1,5 @@
 /** @format */
 
-.Explain_box {
-  width: 100%;
-  padding: 5px;
-}
-
 .Explain {
   font-size: 1.6rem;
   font-weight: bold;
@@ -13,20 +8,12 @@
 }
 
 section {
-  margin-left: 5%;
+  margin-left: 3%;
   display: block;
 }
 
 .SelectBar {
   display: flex;
-  width: 95%;
-}
-
-.Select_menu {
-  /* border: 3px solid greenyellow; */
-  background: #ffd54f;
-  flex-basis: 12%;
-}
-.StartFetch {
-  flex-basis: 18%;
+  width: 96%;
+  height: 2.2rem;
 }

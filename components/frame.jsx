@@ -3,12 +3,7 @@ import React, { useState, useEffect } from "react";
 import RequestOptions from "./requestOptions";
 
 function Frame(props) {
-  let asd = () => {
-    if (props.Res) {
-      console.log("test1", props.Res);
-    } else {
-    }
-  };
+  console.log("test1", props.response);
 
   let resList = [
     "Url",
@@ -19,38 +14,33 @@ function Frame(props) {
     "Content-Type",
   ];
 
-  // let resListUp = resList.map((el, idx) => {
-  //   if (props.response) {
-  //     console.log("frame", props.response);
-  //   }
-  //   return (
-  //     <div key={idx}>
-  //       <label className="Header_option_box">{el}</label>
-  //     </div>
-  //   );
-  // });
+  let resListUp = resList.map((el, idx) => {
+    return (
+      <div key={idx}>
+        <label className="Header_option_box">{el}</label>
+      </div>
+    );
+  });
 
-  // let resListUp =() => {
-  //   if (props.response) {
-  //     props.response.map((el,idx)=>{
-  //     <div key ={idx}></div>
-  //   })
-  //   }
-  //   return (
-  //     <div key={idx}>
-  //       <label className="Header_option_box">{el}</label>
-  //     </div>
-  //   );
-  // });
-  console.log(props.response[7]);
+  let resListValues = () => {
+    if (props.response) {
+      return props.response.map((el, idx) => {
+        return (
+          <div className="Values">
+            <div key={idx}>{el}</div>
+          </div>
+        );
+      });
+    }
+  };
+
   return (
-    <div className="Header_Box">      
+    <div className="Header_Box">
       <div className="Request_Box">
         REQUEST
-          <label className="Sub_Title">Body</label>        
         <textarea
-          className="Client_Body"
-          textholder="write body"
+          className="p-16 w-full bg-orange-50 rounded focus:ring-0 border-2 border-transparent focus:border-orange-500 mb-2 resize-none"
+          placeholder="{key1: value1, key2: value2}"
           onChange={(body) => props.Body(body.target.value)}
         ></textarea>
         <RequestOptions
@@ -60,14 +50,15 @@ function Frame(props) {
         />
       </div>
       <div className="Response_Box">
+        RESPONSE
         <textarea
           className="p-16 w-full bg-orange-50 rounded focus:ring-0 border-2 border-transparent focus:border-orange-500 mb-6 resize-none"
           placeholder="No Response Yet..."
           value={props.response[7]}
         ></textarea>
-        RESPONSE
-        {/* <div>{resListUp}</div> */}
-        <div>{asd()}</div>
+        <div>
+          {resListUp} {resListValues()}
+        </div>
       </div>
     </div>
   );

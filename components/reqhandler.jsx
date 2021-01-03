@@ -13,6 +13,8 @@ export default function ReqHandler() {
   const [Content_Type, setContent_Type] = useState([]);
   const [Body, setBody] = useState([]);
   const [response, setResponse] = useState("");
+  const [error, setError] = useState("");
+
   const headers = new Headers();
   headers.append("Content-Type", Content_Type[Content_Type.length - 1]);
   headers.append("User-Agent", Accepts[0]);
@@ -24,6 +26,7 @@ export default function ReqHandler() {
     method: method,
     headers: headers,
   };
+
   let SendReq = async () => {
     try {
       if (requestOptions.method === "POST") {
@@ -31,8 +34,8 @@ export default function ReqHandler() {
       }
       let response = await fetch(url, requestOptions);
       let storage = [];
+      storage.push(response.url);
       storage.push(method);
-      storage.push(response);
       for (var pair of response.headers.entries()) {
         storage.push(pair[1]);
       }
@@ -40,8 +43,8 @@ export default function ReqHandler() {
         storage.concat(
           response.url,
           method,
-          `${response.status} ${response.statusText}`,
-          response.text()
+          `${response.status} ${response.statusText}`
+          // response.text()
         )
       );
 
@@ -55,27 +58,28 @@ export default function ReqHandler() {
         },
       ]);
     } catch (err) {
-      console.log(err);
+      setError("Error" + err.message);
     }
   };
-  const getAccepts = (sth) => {
-    setAccepts(Accepts.concat(sth));
+  const getAccepts = (option) => {
+    setAccepts(Accepts.concat(option));
   };
-  const getConnetion = (sth) => {
-    setConnection(Connection.concat(sth));
+  const getConnetion = (option) => {
+    setConnection(Connection.concat(option));
   };
-  const getContent_Type = (sth) => {
-    setContent_Type(Content_Type.concat(sth));
+  const getContent_Type = (option) => {
+    setContent_Type(Content_Type.concat(option));
   };
-  const getBody = (sth) => {
-    setBody(sth);
+  const getBody = (text) => {
+    setBody(text);
   };
+
   return (
     <footer>
       <section>
         <div className="send SelectBar">
           <select
-            className="send Select_menu bg-yellow-300"
+            className="bg-orange-400 px-2 py-1 text-sm font-medium text-white"
             onChange={(e) => setMethod(e.target.value)}
           >
             {methods.map((el, idx) => {
@@ -87,7 +91,7 @@ export default function ReqHandler() {
             })}
           </select>
           <textarea
-            className="flex-1 bg-yellow-100 rounded focus:ring-0 border-2 border-transparent focus:border-yellow-400"
+            className="flex-1 bg-orange-50 rounded focus:ring-0 border-2 border-transparent focus:border-orange-400"
             placeholder="Fill URL here :)"
             onChange={(url) => setUrl(url.target.value)}
           ></textarea>
@@ -102,6 +106,7 @@ export default function ReqHandler() {
         Content_Type={getContent_Type}
         Body={getBody}
         response={response}
+        err={error}
       />
     </footer>
   );
