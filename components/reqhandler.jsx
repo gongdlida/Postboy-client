@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useContext } from "react";
+import Context from "../utils/context.js";
+import Frame from "../components/frame";
 const fetch = require("node-fetch");
-import Frame from "../components/./yi/frame";
-
+import OrangeButton from "./OrangeButton";
 const methods = ["SELECT", "GET", "POST"];
-
 export default function ReqHandler() {
+  const [history, setHistory] = useContext(Context).historyContext;
   const [method, setMethod] = useState(methods[0]);
   const [url, setUrl] = useState();
   const [Accepts, setAccepts] = useState([]);
@@ -12,7 +13,6 @@ export default function ReqHandler() {
   const [Content_Type, setContent_Type] = useState([]);
   const [Body, setBody] = useState([]);
   const [response, setResponse] = useState("");
-
   const headers = new Headers();
   headers.append("Content-Type", Content_Type[Content_Type.length - 1]);
   headers.append("User-Agent", Accepts[0]);
@@ -20,48 +20,43 @@ export default function ReqHandler() {
   headers.append("Accept-Language", Accepts[2]);
   headers.append("Accept-Encoding", Accepts[3]);
   headers.append("Connection", Connection[Connection.length - 1]);
-
   let requestOptions = {
     method: method,
     headers: headers,
-    body: Body,
   };
-
   let SendReq = async () => {
     try {
-      let request = await fetch(
-        'http://localhost:4000/messages',
-        requestOptions
-      );
+      if (requestOptions.method === "POST") {
+        requestOptions.body = Body;
+      }
+      let response = await fetch(url, requestOptions);
       let storage = [];
       storage.push(method);
-      storage.push(request);
-      for (var pair of request.headers.entries()) {
-        console.log(pair[0] + ":" + pair[1]);
+      storage.push(response);
+      for (var pair of response.headers.entries()) {
         storage.push(pair[1]);
       }
       setResponse(
         storage.concat(
-          request.url,
+          response.url,
           method,
-          `${request.status} ${request.statusText}`
+          `${response.status} ${response.statusText}`,
+          response.text()
         )
       );
-      console.log("response안에 들어있는 것.", response);
-      // console.log(request);
-      console.log("This form will be into the Response box", {
-        URL: `${request.url}`,
-        Method: method,
-        "Status Code": `${request.status} ${request.statusText}`,
-        "Content-Length": response[0],
-        "Content-Type": response[1],
-        Body: JSON.parse(Body),
-      });
+      setHistory((pastHistory) => [
+        ...pastHistory,
+        {
+          url: url,
+          methodType: method,
+          status: response.status,
+          statusText: response.statusText,
+        },
+      ]);
     } catch (err) {
-      alert(err);
+      console.log(err);
     }
   };
-
   const getAccepts = (sth) => {
     setAccepts(Accepts.concat(sth));
   };
@@ -74,13 +69,12 @@ export default function ReqHandler() {
   const getBody = (sth) => {
     setBody(sth);
   };
-
   return (
     <footer>
       <section>
         <div className="send SelectBar">
           <select
-            className="send Select_menu"
+            className="send Select_menu bg-yellow-300"
             onChange={(e) => setMethod(e.target.value)}
           >
             {methods.map((el, idx) => {
@@ -92,13 +86,13 @@ export default function ReqHandler() {
             })}
           </select>
           <textarea
-            className="send SendText"
+            className="flex-1 bg-yellow-100 rounded focus:ring-0 border-2 border-transparent focus:border-yellow-400"
             placeholder="Fill URL here :)"
             onChange={(url) => setUrl(url.target.value)}
           ></textarea>
-          <button className="StartFetch" onClick={() => SendReq()}>
+          <OrangeButton className="StartFetch" onClick={() => SendReq()}>
             SEND
-          </button>
+          </OrangeButton>
         </div>
       </section>
       <Frame
