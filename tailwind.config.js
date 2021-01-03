@@ -1,7 +1,7 @@
 const colors = require("tailwindcss/colors");
 
 module.exports = {
-  purge: [],
+  purge: ["./src/**/*.html", "./src/**/*.vue", "./src/**/*.jsx"],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
@@ -10,11 +10,4 @@ module.exports = {
       },
     },
   },
-  variants: {
-    extend: {},
-  },
-  purge: ["./src/**/*.html", "./src/**/*.vue", "./src/**/*.jsx"],
-  theme: {},
-  variants: {},
-  plugins: [],
 };
