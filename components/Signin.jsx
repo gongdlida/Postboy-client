@@ -40,7 +40,7 @@ export default function Signin() {
       });
       router.push("/");
     } catch (e) {
-      setErrormessage(e);
+      alert(e);
     }
   };
 
