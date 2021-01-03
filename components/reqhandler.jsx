@@ -2,8 +2,9 @@ import React, { useState, useContext } from "react";
 import Context from "../utils/context.js";
 import Frame from "../components/frame";
 const fetch = require("node-fetch");
-const methods = ["SELECT", "GET", "POST"];
 import OrangeButton from "./OrangeButton";
+
+const methods = ["SELECT", "GET", "POST"];
 
 export default function ReqHandler() {
   const [history, setHistory] = useContext(Context).historyContext;
@@ -33,10 +34,7 @@ export default function ReqHandler() {
       if (requestOptions.method === "POST") {
         requestOptions.body = Body;
       }
-      let response = await fetch(
-        "http://localhost:4000/messages",
-        requestOptions
-      );
+      let response = await fetch(url, requestOptions);
       let storage = [];
       storage.push(method);
       storage.push(response);
@@ -52,6 +50,7 @@ export default function ReqHandler() {
           response.text()
         )
       );
+
       setHistory((pastHistory) => [
         ...pastHistory,
         {
@@ -61,15 +60,6 @@ export default function ReqHandler() {
           statusText: response.statusText,
         },
       ]);
-      // console.log("response안에 들어있는 것.", response);
-      console.log("client's server side", response);
-      console.log("This form will be into the Response box", {
-        URL: `${response.url}`,
-        Method: method,
-        "Status Code": `${response.status} ${response.statusText}`,
-        "Content-Length": response[0],
-        "Content-Type": response[1],
-      });
     } catch (err) {
       console.log(err);
     }

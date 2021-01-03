@@ -1,29 +1,25 @@
 import React, { useState, useEffect } from "react";
 
 function RequestOptions(props) {
-  let user_Agent = ["Select", "POSTBOY"];
-  let accept = ["Select", "*/*"];
-  let accept_Encoding = ["Select", "gzip,deflate,br"];
-  let accept_Language = ["Select", "utf-8"];
-  let connection = ["Select", "keep-alive", "close"];
+  let user_Agent = ["POSTBOY"];
+  let accept = ["*/*"];
+  let accept_Encoding = ["gzip,deflate,br"];
+  let accept_Language = ["utf-8"];
+  let connection = ["keep-alive", "close"];
   let content_Type_Beginner = [
     "Select",
-    "--APPLICATION TYPE--",
     "application/json",
     "application/javascript",
     "application/pdf",
     "application/sql",
     "application/xml",
     "application/zip",
-    "--AUDIO TYPE--",
     "audio/mpeg",
     "audio/ogg",
-    "--FILE TYPE--",
     "image/gif",
     "image/jpeg",
     "image/png",
     "multipart/form-data",
-    "---TEXT TYPE---",
     "text/css",
     "text/html",
     "text/plain",
