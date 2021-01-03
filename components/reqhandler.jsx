@@ -13,6 +13,7 @@ export default function ReqHandler() {
   const [Content_Type, setContent_Type] = useState([]);
   const [withCredentials, setWithCredentials] = useState([]);
   const [Body, setBody] = useState([]);
+  const [resBody, setResBody] = useState([]);
   const [response, setResponse] = useState("");
 
   const headers = new Headers();
@@ -37,6 +38,7 @@ export default function ReqHandler() {
   };
 
   let SendReq = async () => {
+    console.log(resBody);
     try {
       if (requestOptions.method === "POST") {
         requestOptions.body = Body;
@@ -53,9 +55,10 @@ export default function ReqHandler() {
           response.url,
           method,
           `${response.status} ${response.statusText}`
-          // response.text()
         )
       );
+      let read = await response.text().then((data) => data);
+      setResBody(read);
 
       setHistory((pastHistory) => [
         ...pastHistory,
@@ -120,6 +123,7 @@ export default function ReqHandler() {
         Body={getBody}
         Credential={getWithCredentials}
         response={response}
+        resBody={resBody}
       />
     </footer>
   );

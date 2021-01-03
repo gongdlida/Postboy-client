@@ -3,6 +3,10 @@ import React, { useState, useEffect } from "react";
 import RequestOptions from "./requestOptions";
 
 function Frame(props) {
+  // const [resBody, setResBody] = useState();
+
+  console.log(props.resBody);
+
   let resList = [
     "Url",
     "Method",
@@ -52,7 +56,7 @@ function Frame(props) {
         <textarea
           className="p-16 w-full bg-orange-50 rounded focus:ring-0 border-2 border-transparent focus:border-orange-500 mb-6 resize-none"
           placeholder="No Response Yet..."
-          value={props.response[7]}
+          value={props.resBody}
         ></textarea>
         <div>
           {resListUp} {resListValues()}
