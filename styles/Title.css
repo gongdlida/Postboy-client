@@ -1,11 +1,4 @@
 /** @format */
-.Postboy {
-  margin: 10px;
-  display: block;
-  width: 10%;
-  height: 20%;
-  flex-basis: 60%;
-}
 
 .Explain_box {
   width: 100%;
@@ -18,20 +11,22 @@
   flex-basis: 40%;
   text-align: center;
 }
+
 section {
-  margin-left: 15%;
+  margin-left: 5%;
+  display: block;
 }
+
 .SelectBar {
   display: flex;
+  width: 95%;
 }
-.SendText {
-  flex-basis: 60%;
-}
+
 .Select_menu {
   /* border: 3px solid greenyellow; */
   background: #ffd54f;
-  flex-basis: 10%;
+  flex-basis: 12%;
 }
 .StartFetch {
-  flex-basis: 15%;
+  flex-basis: 18%;
 }

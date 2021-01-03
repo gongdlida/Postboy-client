@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import fetch from "node-fetch";
-
 export default function Signup() {
   const router = useRouter();
   const [email, setEmail] = useState("");
@@ -9,7 +8,6 @@ export default function Signup() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setconfirmPassword] = useState("");
   const [errormessage, setErrormessage] = useState("");
-
   const urlencoded = new URLSearchParams();
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,7 +21,6 @@ export default function Signup() {
       urlencoded.append("email", email);
       urlencoded.append("nickname", nickname);
       urlencoded.append("password", password);
-
       const response = await fetch(`http://3.36.70.223:3000/signup`, {
         method: "post",
         headers: {
@@ -31,7 +28,6 @@ export default function Signup() {
         },
         body: urlencoded,
       });
-
       const body = await response.json();
       if (!response.ok) {
         throw `Server says: ${body.message}`;
@@ -41,7 +37,6 @@ export default function Signup() {
       console.log(e);
     }
   };
-
   return (
     <>
       <div>

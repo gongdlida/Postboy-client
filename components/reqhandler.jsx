@@ -3,9 +3,7 @@ import Context from "../utils/context.js";
 import Frame from "../components/frame";
 const fetch = require("node-fetch");
 import OrangeButton from "./OrangeButton";
-
 const methods = ["SELECT", "GET", "POST"];
-
 export default function ReqHandler() {
   const [history, setHistory] = useContext(Context).historyContext;
   const [method, setMethod] = useState(methods[0]);
@@ -15,7 +13,6 @@ export default function ReqHandler() {
   const [Content_Type, setContent_Type] = useState([]);
   const [Body, setBody] = useState([]);
   const [response, setResponse] = useState("");
-
   const headers = new Headers();
   headers.append("Content-Type", Content_Type[Content_Type.length - 1]);
   headers.append("User-Agent", Accepts[0]);
@@ -23,12 +20,10 @@ export default function ReqHandler() {
   headers.append("Accept-Language", Accepts[2]);
   headers.append("Accept-Encoding", Accepts[3]);
   headers.append("Connection", Connection[Connection.length - 1]);
-
   let requestOptions = {
     method: method,
     headers: headers,
   };
-
   let SendReq = async () => {
     try {
       if (requestOptions.method === "POST") {
@@ -41,7 +36,6 @@ export default function ReqHandler() {
       for (var pair of response.headers.entries()) {
         storage.push(pair[1]);
       }
-
       setResponse(
         storage.concat(
           response.url,
@@ -64,7 +58,6 @@ export default function ReqHandler() {
       console.log(err);
     }
   };
-
   const getAccepts = (sth) => {
     setAccepts(Accepts.concat(sth));
   };
@@ -77,7 +70,6 @@ export default function ReqHandler() {
   const getBody = (sth) => {
     setBody(sth);
   };
-
   return (
     <footer>
       <section>

@@ -3,26 +3,21 @@ import { useRouter } from "next/router";
 import fetch from "node-fetch";
 import OrangeButton from "./OrangeButton";
 import Context from "../utils/context.js";
-
 export default function Signin() {
   const router = useRouter();
   const [user, setUser] = useContext(Context).userContext;
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errormessage, setErrormessage] = useState("");
   const urlencoded = new URLSearchParams();
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       if (!(email && password)) {
         throw "Please give both email and password!";
       }
-
       urlencoded.append("email", email);
       urlencoded.append("password", password);
-
       const response = await fetch(`http://3.36.70.223:3000/signin`, {
         method: "post",
         headers: {
@@ -43,7 +38,6 @@ export default function Signin() {
       alert(e);
     }
   };
-
   return (
     <div className="h-full">
       <div>

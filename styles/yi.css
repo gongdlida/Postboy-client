@@ -1,21 +1,25 @@
 .Request_Box {
-  flex-basis: 25%;
+  flex: auto;
   border-radius: 10px;
   display: inline-block;
-  height: 25rem;
-  width: 28rem;
+  height: 22rem;
+  width: 22rem;
   margin: 1rem;
   font-weight: bold;
   font-size: 0.8rem;
   border: 0.15rem solid black;
 }
-
+@media screen and (max-width: 425px) {
+  .Request_Box {
+    width: 22rem;
+  }
+}
 .Response_Box {
-  flex-basis: 25%;
+  flex: auto;
   border-radius: 10px;
   display: inline-block;
-  height: 25rem;
-  width: 28rem;
+  height: 22rem;
+  width: 22rem;
 
   margin: 1rem;
   font-weight: bold;
@@ -23,11 +27,11 @@
   border: 0.15rem solid black;
 }
 .History_Box {
-  flex-basis: 25%;
+  flex: auto;
   border-radius: 10px;
   display: inline-block;
-  height: 25rem;
-  width: 28rem;
+  height: 22rem;
+  width: 22rem;
   margin: 1rem;
   font-weight: bold;
   font-size: 0.8rem;
@@ -37,10 +41,16 @@
 .Header_Box {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   text-align: center;
   justify-content: center;
 }
+/* @media screen and (max-width: 425px) {
+  .Header_Box {
+    display: flex;
+    flex-direction: column;
+  }
+} */
 
 .Header_option_box {
   display: flex;

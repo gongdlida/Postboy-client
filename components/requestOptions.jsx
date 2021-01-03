@@ -74,7 +74,7 @@ function RequestOptions(props) {
       </label>
 
       <label className="Header_option_box">
-        Accept-Language
+        Accept_Language
         <select
           className="Option_btn"
           onChange={(e) => {
