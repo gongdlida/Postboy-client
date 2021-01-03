@@ -82,7 +82,7 @@ export default function Signup() {
                 value={confirmPassword}
                 placeholder="Confirm Password"
               />
-              <div className="mt-4 w-full bg-yellow-400 flex justify-center rounded">
+              <div className="mt-4 w-full bg-orange-400 flex justify-center rounded">
                 <OrangeButton>Create account</OrangeButton>
               </div>
               <p className="mt-2">{errormessage}</p>

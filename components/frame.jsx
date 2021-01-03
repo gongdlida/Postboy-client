@@ -46,10 +46,9 @@ function Frame(props) {
   return (
     <div className="Header_Box">      
       <div className="Request_Box">
-        REQUEST
-          <label className="Sub_Title">Body</label>        
+        REQUEST             
         <textarea
-          className="p-16 w-full bg-orange-50 rounded focus:ring-0 border-2 border-transparent focus:border-orange-500 mb-6 resize-none"
+          className="p-16 w-full bg-orange-50 rounded focus:ring-0 border-2 border-transparent focus:border-orange-500 mb-2 resize-none"
           placeholder="{username: , text: , roomname}"
           onChange={(body) => props.Body(body.target.value)}
         ></textarea>
@@ -60,12 +59,12 @@ function Frame(props) {
         />
       </div>
       <div className="Response_Box">
+        RESPONSE
         <textarea
           className="p-16 w-full bg-orange-50 rounded focus:ring-0 border-2 border-transparent focus:border-orange-500 mb-6 resize-none"
           placeholder="No Response Yet..."
           value={props.response[7]}
         ></textarea>
-        RESPONSE
         {/* <div>{resListUp}</div> */}
         <div>{asd()}</div>
       </div>

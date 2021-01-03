@@ -74,7 +74,7 @@ export default function ReqHandler() {
       <section>
         <div className="send SelectBar">
           <select
-            className="send Select_menu bg-yellow-300"
+            className="bg-orange-400 px-2 py-1 text-sm font-medium text-white"
             onChange={(e) => setMethod(e.target.value)}
           >
             {methods.map((el, idx) => {
@@ -86,7 +86,7 @@ export default function ReqHandler() {
             })}
           </select>
           <textarea
-            className="flex-1 bg-yellow-100 rounded focus:ring-0 border-2 border-transparent focus:border-yellow-400"
+            className="flex-1 bg-orange-50 rounded focus:ring-0 border-2 border-transparent focus:border-red-400"
             placeholder="Fill URL here :)"
             onChange={(url) => setUrl(url.target.value)}
           ></textarea>
