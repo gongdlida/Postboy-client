@@ -12,7 +12,7 @@ export default function ModalRouter({id}) {
     const components = {signin: Signin, signout: Signout, signup: Signup, mypage: Mypage, nav: Nav}
 
     return (
-      <Modal isOpen={router.query.id === id}
+      <Modal className="Navbar_UI"isOpen={router.query.id === id}
         onRequestClose={() => router.push('/')}
         contentLabel={id}>
           {React.createElement(components[id], {})}

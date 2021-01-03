@@ -13,7 +13,7 @@ export default function Nav() {
          <Link href={'/?id=signup'}><a className='flex-auto'>Signup</a></Link>
          <Link href={'/?id=signout'}><a className='flex-auto'>Signout</a></Link>
          <Link href={'/?id=mypage'}><a className='flex-auto'>Mypage</a></Link>
-         <p>{user.isLogin ? `Hi ${user.username}` : ''}</p>
+         {/* <p>{user.isLogin ? `Hi ${user.username}` : ''}</p> */}
      </div>  
     )
 }

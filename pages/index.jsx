@@ -18,7 +18,7 @@ export default function Home() {
         <ModalRouter key={idx} id={item}/>
       ))}
       <Link href={"/?id=nav"}>
-        <a className="Ham_menu">Hamburger</a>
+        <a className="Ham_menu">MENU</a>       
       </Link>
       <Title></Title>
       <ReqHandler />
