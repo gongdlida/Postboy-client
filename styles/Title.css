@@ -1,0 +1,19 @@
+/** @format */
+
+.Explain {
+  font-size: 1.6rem;
+  font-weight: bold;
+  flex-basis: 40%;
+  text-align: center;
+}
+
+section {
+  margin-left: 3%;
+  display: block;
+}
+
+.SelectBar {
+  display: flex;
+  width: 96%;
+  height: 2.2rem;
+}
