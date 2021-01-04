@@ -34,7 +34,6 @@ export default function ReqHandler() {
     headers: headers,
   };
   let SendReq = async () => {
-    console.log(resBody);
     try {
       if (requestOptions.method === "POST") {
         requestOptions.body = Body;

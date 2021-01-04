@@ -5,7 +5,6 @@ import RequestOptions from "./requestOptions";
 function Frame(props) {
   // const [resBody, setResBody] = useState();
 
-  console.log(props.resBody);
 let resList = [
     "Url",
     "Method",
