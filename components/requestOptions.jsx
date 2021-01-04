@@ -33,6 +33,7 @@ function RequestOptions(props) {
   const [Accept, SetAccept] = useState();
   const [AcceptEn, SetAcceptEn] = useState();
   const [AcceptLang, SetAcceptLang] = useState();
+  const [withCredential, setWithCredentials] = useState();
 
   return (
     <>
@@ -152,7 +153,7 @@ function RequestOptions(props) {
         <select
           className="Option_btn"
           onChange={(e) => {
-            SetContent(e.target.value);
+            setWithCredentials(e.target.value);
             props.Credential(e.target.value);
           }}
         >
@@ -168,7 +169,6 @@ function RequestOptions(props) {
     </>
   );
 }
-
 export default RequestOptions;
 
 /*

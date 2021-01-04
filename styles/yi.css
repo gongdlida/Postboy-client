@@ -2,7 +2,7 @@
   flex: auto;
   border-radius: 10px;
   display: inline-block;
-  height: 22.7rem;
+  height: 27.5rem;
   width: 22rem;
   margin: 1rem;
   font-weight: bold;
@@ -12,22 +12,36 @@
 
 .Response_Box {
   flex: auto;
+  flex-direction: row;
   border-radius: 10px;
   display: inline-block;
-  height: 22.7rem;
+  height: 27.5rem;
   width: 22rem;
   margin: 1rem;
   font-weight: bold;
   font-size: 0.8rem;
   border: 0.15rem solid black;
 }
+.Res_Info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -14px;
+}
+.Response_List {
+  flex-basis: 50%;
+}
+.Response_Get {
+  flex-basis: 50%;
+  background: #f8e6b5;
+}
+.Values {
+  padding: 10px 15px 3px 5px;
+}
 
 .Header_Box {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   text-align: center;
-  justify-content: center;
 }
 /* @media screen and (max-width: 425px) {
   .Header_Box {
@@ -38,17 +52,14 @@
 
 .Header_option_box {
   display: flex;
-  vertical-align: middle;
-  font-style: italic;
-  font-weight: bold;
   background: #f8e6b5;
   justify-content: space-between;
-  padding: 3px 5px;
+  padding: 10px 15px 3px 15px;
 }
 
 .Option_btn {
   display: flex;
-  width: 7rem;
+  width: 10rem;
 }
 .Sub_Title {
   padding: 5px;

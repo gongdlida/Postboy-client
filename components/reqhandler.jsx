@@ -15,14 +15,12 @@ export default function ReqHandler() {
   const [Body, setBody] = useState([]);
   const [resBody, setResBody] = useState([]);
   const [response, setResponse] = useState("");
-
   const headers = new Headers();
   headers.append("User-Agent", "Postboy");
   headers.append("Accept", "*/*");
   headers.append("Accept-Language", "utf-8");
   headers.append("Accept-Encoding", "gzip,deflate,br");
   headers.append("Connection", Connection[Connection.length - 1]);
-
   if (Content_Type !== "OPTIONAL") {
     headers.append("Content-Type", Content_Type[Content_Type.length - 1]);
   }
@@ -31,12 +29,10 @@ export default function ReqHandler() {
     withCredentials === "false" ? (flag = false) : (flag = true);
     headers.append("withCredentials", flag);
   }
-
   let requestOptions = {
     method: method,
     headers: headers,
   };
-
   let SendReq = async () => {
     console.log(resBody);
     try {
@@ -47,19 +43,15 @@ export default function ReqHandler() {
       let storage = [];
       storage.push(response.url);
       storage.push(method);
+      storage.push(`${response.status} ${response.statusText}`);
       for (var pair of response.headers.entries()) {
         storage.push(pair[1]);
       }
-      setResponse(
-        storage.concat(
-          response.url,
-          method,
-          `${response.status} ${response.statusText}`
-        )
-      );
+      storage.push("gzip");
+      storage.push(Date().split('', 25))
+      setResponse(storage);
       let read = await response.text().then((data) => data);
       setResBody(read);
-
       setHistory((pastHistory) => [
         ...pastHistory,
         {
@@ -85,11 +77,9 @@ export default function ReqHandler() {
   const getWithCredentials = (option) => {
     setWithCredentials(withCredentials.concat(option));
   };
-
   const getBody = (text) => {
     setBody(text);
   };
-
   return (
     <footer>
       <section>

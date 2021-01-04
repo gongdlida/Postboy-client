@@ -6,14 +6,14 @@ function Frame(props) {
   // const [resBody, setResBody] = useState();
 
   console.log(props.resBody);
-
-  let resList = [
+let resList = [
     "Url",
     "Method",
     "Status Code",
-    "Connection",
     "Content-Length",
     "Content-Type",
+    "Content-Encoding",
+    "Date",
   ];
 
   let resListUp = resList.map((el, idx) => {
@@ -45,10 +45,11 @@ function Frame(props) {
           placeholder="{key1: value1, key2: value2}"
           onChange={(body) => props.Body(body.target.value)}
         ></textarea>
-        <RequestOptions
+         <RequestOptions
           Accepts={props.Accepts}
           Connection={props.Connection}
           ContentType={props.Content_Type}
+          Credential={props.Credential}
         />
       </div>
       <div className="Response_Box">
@@ -58,9 +59,14 @@ function Frame(props) {
           placeholder="No Response Yet..."
           value={props.resBody}
         ></textarea>
-        <div>
-          {resListUp} {resListValues()}
+        <div className="Res_Info">
+        <div className="Response_List">
+          {resListUp} 
         </div>
+        <div className="Response_Get">
+        {resListValues()}
+        </div>
+      </div>
       </div>
     </div>
   );
