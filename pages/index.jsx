@@ -1,4 +1,4 @@
-import Nav from "../components/Nav";
+// import Nav from "../components/Nav";
 import Title from "../components/Title";
 // import Request from "../components/Request"
 import ReqHandler from "../components/reqhandler";
@@ -14,15 +14,9 @@ export default function Home() {
 
   return (
     <>
-      {["signin", "signup", "signout", "mypage", "nav"].map((item, idx) => (
-        <ModalRouter key={idx} id={item}/>
-      ))}
-      <Link href={"/?id=nav"}>
-        <a className="Ham_menu">Hamburger</a>
-      </Link>
       <Title></Title>
       <ReqHandler />
-      {/* <Frame /> */}
+
     </>
   );
 }

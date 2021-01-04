@@ -1,27 +1,4 @@
 /** @format */
-.Postboy {
-  width: 20%;
-  height: 30%;
-  flex-basis: 60%;
-}
-@media screen and (max-width: 425px) {
-  .Explain_box {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
-}
-
-@media screen and (max-width: 425px) {
-  .Postboy {
-    width: 3rem;
-    height: 3rem;
-  }
-}
-.Explain_box {
-  width: 100%;
-  padding: 5px;
-}
 
 .Explain {
   font-size: 1.6rem;
@@ -29,29 +6,14 @@
   flex-basis: 40%;
   text-align: center;
 }
-@media screen and (max-width: 425px) {
-  .Explain {
-    font-size: 0.95rem;
-    padding-top: 1rem;
-    text-align: center;
-  }
-}
+
 section {
-  margin-left: 5%;
+  margin-left: 3%;
   display: block;
 }
 
 .SelectBar {
   display: flex;
-}
-.SendText {
-  flex-basis: 60%;
-}
-.Select_menu {
-  /* border: 3px solid greenyellow; */
-  background: #ffd54f;
-  flex-basis: 18%;
-}
-.StartFetch {
-  flex-basis: 18%;
+  width: 96%;
+  height: 2.2rem;
 }
