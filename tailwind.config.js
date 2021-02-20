@@ -1,51 +1,13 @@
 const colors = require("tailwindcss/colors");
-const defaultTheme = require("tailwindcss/defaultTheme")
-// module.exports = {
-//   purge: ["./src/**/*.html", "./src/**/*.vue", "./src/**/*.jsx"],
-//   darkMode: false, // or 'media' or 'class'
-//   theme: {
-//     extend: {
-//       colors: {
-//         orange: colors.orange,
-//       },
-//     },
-//   },
-// };
-
 
 module.exports = {
-  purge: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.html", 
-    "./components/**/*.vue", 
-    "./components/**/*.jsx"
-  ],
+  purge: ["./components/**/*.html", "./components/**/*.vue", "./components/**/*.jsx"],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
       colors: {
         orange: colors.orange,
       },
-      fontFamily: {
-        sans: ["Inter", ...defaultTheme.fontFamily.sans],
-      },
     },
   },
-  plugins: [
-    'tailwindcss',
-    'postcss-flexbugs-fixes',
-    [
-      'postcss-preset-env',
-      {
-        autoprefixer: {
-          flexbox: 'no-2009',
-        },
-        stage: 3,
-        features: {
-          'custom-properties': false,
-        },
-      },
-    ],
-  ],
-}
+};
