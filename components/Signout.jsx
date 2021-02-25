@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useEffect, useContext } from "react";
 import { useRouter } from "next/router";
 import fetch from "node-fetch";
 import Context from "../utils/context.js";

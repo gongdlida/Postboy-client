@@ -5,6 +5,7 @@ import "../styles/Title.css";
 import "../styles/Nav.css";
 import "../globals.css";
 
+// msw
 if (process.env.NODE_ENV === "development") {
   const { worker } = require("../mocks");
 }

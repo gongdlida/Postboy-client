@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Context from "../utils/context.js";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import ModalRouter from "./Modalrouter";
 import OrangeButton from "./OrangeButton";
 
