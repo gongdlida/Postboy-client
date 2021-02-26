@@ -39,3 +39,5 @@ let content_Type_Beginner = [
   "text/plain",
   "text/xml",
 ];
+
+export {resList, user_Agent, accept, accept_Encoding, accept_Language, connection, content_Type_Beginner, withCredentials}

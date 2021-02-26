@@ -1,19 +1,9 @@
 import React from "react";
 
 import RequestOptions from "./requestOptions";
+import {resList} from "../utils/data.js";
 
 function Frame(props) {
-  // const [resBody, setResBody] = useState();
-
-let resList = [
-    "Url",
-    "Method",
-    "Status Code",
-    "Content-Length",
-    "Content-Type",
-    "Content-Encoding",
-    "Date",
-  ];
 
   let resListUp = resList.map((el, idx) => {
     return (
