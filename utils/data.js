@@ -8,19 +8,14 @@ let resList = [
   "Date",
 ];
 
-let user_Agent = ["POSTBOY"];
-
-let accept = ["*/*"];
-
-let accept_Encoding = ["gzip,deflate,br"];
-
-let accept_Language = ["utf-8"];
-
-let connection = ["keep-alive", "close"];
-
-let withCredentials = ["OPTIONAL", "true", "false"];
-
-let content_Type_Beginner = [
+let options = { 
+ user_Agent : ["POSTBOY"],
+ accept : ["*/*"],
+ accept_Encoding : ["gzip,deflate,br"],
+ accept_Language : ["utf-8"],
+ connection : ["keep-alive", "close"],
+ withCredentials : ["OPTIONAL", "true", "false"],
+ content_Type_Beginner : [
   "OPTIONAL",
   "application/json",
   "application/javascript",
@@ -38,6 +33,7 @@ let content_Type_Beginner = [
   "text/html",
   "text/plain",
   "text/xml",
-];
+]
+}
 
-export {resList, user_Agent, accept, accept_Encoding, accept_Language, connection, content_Type_Beginner, withCredentials}
+export {resList, options}

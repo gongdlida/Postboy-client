@@ -1,32 +1,7 @@
 import React, { useState, useEffect } from "react";
-
+import {options} from "../utils/data"
 function RequestOptions(props) {
-  let user_Agent = ["POSTBOY"];
-  let accept = ["*/*"];
-  let accept_Encoding = ["gzip,deflate,br"];
-  let accept_Language = ["utf-8"];
-  let connection = ["keep-alive", "close"];
-  let withCredentials = ["OPTIONAL", "true", "false"];
-  let content_Type_Beginner = [
-    "OPTIONAL",
-    "application/json",
-    "application/javascript",
-    "application/pdf",
-    "application/sql",
-    "application/xml",
-    "application/zip",
-    "audio/mpeg",
-    "audio/ogg",
-    "image/gif",
-    "image/jpeg",
-    "image/png",
-    "multipart/form-data",
-    "text/css",
-    "text/html",
-    "text/plain",
-    "text/xml",
-  ];
-
+  
   const [Content, SetContent] = useState([]);
   const [Connect, SetConnect] = useState([]);
   const [UserAgent, SetUserAgent] = useState();
@@ -46,7 +21,7 @@ function RequestOptions(props) {
             props.Accepts(e.target.value);
           }}
         >
-          {user_Agent.map((el, idx) => {
+          {options.user_Agent.map((el, idx) => {
             return (
               <option value={el} key={idx}>
                 {el}
@@ -65,7 +40,7 @@ function RequestOptions(props) {
             props.Accepts(e.target.value);
           }}
         >
-          {accept.map((el, idx) => {
+          {options.accept.map((el, idx) => {
             return (
               <option value={el} key={idx}>
                 {el}
@@ -84,7 +59,7 @@ function RequestOptions(props) {
             props.Accepts(e.target.value);
           }}
         >
-          {accept_Language.map((el, idx) => {
+          {options.accept_Language.map((el, idx) => {
             return (
               <option value={el} key={idx}>
                 {el}
@@ -103,7 +78,7 @@ function RequestOptions(props) {
             props.Accepts(e.target.value);
           }}
         >
-          {accept_Encoding.map((el, idx) => {
+          {options.accept_Encoding.map((el, idx) => {
             return (
               <option value={el} key={idx}>
                 {el}
@@ -121,7 +96,7 @@ function RequestOptions(props) {
             props.Connection(e.target.value);
           }}
         >
-          {connection.map((el, idx) => {
+          {options.connection.map((el, idx) => {
             return (
               <option value={el} key={idx}>
                 {el}
@@ -139,7 +114,7 @@ function RequestOptions(props) {
             props.ContentType(e.target.value);
           }}
         >
-          {content_Type_Beginner.map((el, idx) => {
+          {options.content_Type_Beginner.map((el, idx) => {
             return (
               <option value={el} key={idx}>
                 {el}
@@ -157,7 +132,7 @@ function RequestOptions(props) {
             props.Credential(e.target.value);
           }}
         >
-          {withCredentials.map((el, idx) => {
+          {options.withCredentials.map((el, idx) => {
             return (
               <option value={el} key={idx}>
                 {el}
